@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Presupuesto de Mudanza | Precios en España</title>
+<script>
+/* Google Consent Mode v2: todo denegado hasta que el usuario acepte. Debe cargarse en el <head>, antes de cualquier script de Google. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag('consent', 'default', {ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', wait_for_update:500});
+gtag('set', 'ads_data_redaction', true);
+</script>
+<meta name="description" content="Calcula en 1 minuto el precio estimado de tu mudanza. Presupuestos para mudanzas pequeñas, por km y entre provincias en toda España.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cuánto cuesta una mudanza entre provincias?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El precio de una mudanza entre provincias depende sobre todo de la distancia y del volumen de tus cosas. Como referencia orientativa, un piso de 1-2 habitaciones entre Bilbao y Madrid (unos 400 km) ronda los 550-730 €, y un piso de 3 o más habitaciones entre 840 y 1.130 €. Cuantos más kilómetros, más sube el coste. Usa la calculadora para ver el rango de tu ruta exacta."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cómo se calcula el precio de una mudanza?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Se combinan tres factores. 1) Kilómetros: las mudanzas locales (hasta unos 30 km) llevan una tarifa base y, a partir de ahí, se suma un importe por km que crece con el tamaño de la vivienda. 2) Volumen: más muebles y cajas significan más metros cúbicos, más operarios y un vehículo mayor; por eso la calculadora usa el tipo de vivienda como indicador del volumen. 3) Planta y accesos: un piso alto sin ascensor, una calle estrecha o un aparcamiento lejano encarecen el servicio, y a veces hace falta elevador o grúa (opción incluida en la calculadora). A todo ello se suman extras como embalaje, montaje de muebles o guardamuebles. El detalle de plantas y accesos se concreta en el presupuesto cerrado."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuánto se tarda en hacer una mudanza?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Una mudanza local de un piso medio se completa en 4-8 horas. En mudanzas entre provincias, el transporte suele tardar entre 1 y 4 días laborables según la distancia y la ruta, y el servicio puede ser exclusivo o compartido con otras cargas."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuánto cuesta una mudanza pequeña o por horas?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Una mudanza pequeña (un estudio, o pocos muebles y cajas) dentro de la misma provincia ronda los 210-280 € según nuestra estimación. Si la contratas por horas, lo habitual es una tarifa orientativa de 45-80 € por hora con furgoneta y dos operarios, normalmente con un mínimo de 2-3 horas. Es una buena opción para trayectos cortos y poco volumen; para un piso completo suele compensar un precio cerrado."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuánto cuesta hacer una mudanza de un piso?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dentro de la misma provincia (por ejemplo, en Bilbao y alrededores), la estimación es de 330-450 € para un piso de 1-2 habitaciones y de 530-710 € para uno de 3 o más habitaciones. Si cambias de provincia, se suma el coste por kilómetros. El embalaje, el montaje de muebles, el elevador o el guardamuebles se añaden aparte."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Necesito algún permiso para mudarme?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Si el camión necesita ocupar la vía pública o usar un elevador, normalmente hay que solicitar un permiso de ocupación o reserva de estacionamiento en el ayuntamiento, con unos días de antelación. Las empresas de mudanzas suelen gestionarlo por ti. En comunidades de vecinos conviene avisar al administrador."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cuándo es más barato mudarse?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Entre semana, a mitad de mes y fuera de la temporada alta (junio-septiembre) hay más disponibilidad y precios más bajos. Los fines de semana y los últimos días de mes son más caros porque coinciden con los fines de alquiler."
+   }
+  }
+ ]
+}
+</script>
+<style>
+:root{
+  --navy:#0b2545;--navy-2:#13315c;--blue:#1f6feb;--blue-soft:#eaf2ff;
+  --orange:#ff7a1a;--orange-dark:#e8650a;--text:#1c2a3a;--muted:#5b6b7d;
+  --bg:#f5f8fc;--card:#fff;--border:#dde5ef;--ok:#16a34a;
+  --radius:16px;--shadow:0 8px 30px rgba(11,37,69,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* Lenis: desactiva el smooth nativo mientras Lenis está activo para que no compitan */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-stopped{overflow:clip}
+[data-lenis-prevent]{overscroll-behavior:contain}
+body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{width:min(1080px,100% - 32px);margin-inline:auto}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#1d4f91 100%);color:#fff;padding:56px 0 110px;text-align:center}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.14);padding:6px 14px;border-radius:999px;font-size:.85rem;font-weight:600;margin-bottom:18px}
+.hero h1{font-size:clamp(1.9rem,5vw,3.1rem);line-height:1.15;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+.hero p{font-size:clamp(1rem,2.2vw,1.2rem);opacity:.92;max-width:640px;margin:0 auto 22px}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;font-size:.9rem;opacity:.95}
+.trust span::before{content:"✓ ";color:#6ee7a0;font-weight:800}
+
+/* LAYOUT */
+main{margin-top:-70px;position:relative}
+.calc-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}
+@media(max-width:860px){.calc-grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;border:1px solid var(--border)}
+.card h2{font-size:1.3rem;color:var(--navy);margin-bottom:6px}
+.card .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+
+/* FORM CONTROLS */
+.field{margin-bottom:20px}
+label.lbl,.lbl{display:block;font-weight:600;font-size:.92rem;margin-bottom:8px;color:var(--navy)}
+.step{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--blue);color:#fff;border-radius:50%;font-size:.78rem;margin-right:8px}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.type{position:relative}
+.type input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.type div{border:2px solid var(--border);border-radius:12px;padding:12px 10px;text-align:center;font-size:.9rem;font-weight:600;transition:.15s;background:#fff}
+.type div small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.type input:checked + div{border-color:var(--blue);background:var(--blue-soft);color:var(--navy)}
+.type input:focus-visible + div{outline:3px solid rgba(31,111,235,.35)}
+select,input[type=text],input[type=tel],input[type=email],input[type=date],textarea{
+  width:100%;padding:13px 14px;border:2px solid var(--border);border-radius:12px;font:inherit;color:var(--text);background:#fff;transition:.15s}
+select:focus,input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,111,235,.15)}
+textarea{min-height:90px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.checks{display:grid;gap:10px}
+.check{display:flex;gap:12px;align-items:center;border:2px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:.15s;font-size:.95rem}
+.check input{width:20px;height:20px;accent-color:var(--blue);flex-shrink:0}
+.check:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}
+.check b{margin-left:auto;color:var(--muted);font-weight:500;font-size:.85rem;white-space:nowrap}
+
+/* RESULT */
+.result{position:sticky;top:16px}
+@media(max-width:860px){.result{position:static}}
+.price-box{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:14px;padding:22px;text-align:center;margin-bottom:16px}
+.price-box small{opacity:.8;font-size:.85rem}
+.price{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin:4px 0;transition:transform .2s}
+.price.bump{transform:scale(1.06)}
+.km{opacity:.85;font-size:.88rem}
+.breakdown{list-style:none;font-size:.9rem;margin-bottom:6px}
+.breakdown li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border)}
+.breakdown li span:last-child{font-weight:600;color:var(--navy)}
+.disclaimer{font-size:.78rem;color:var(--muted);margin-top:10px}
+
+/* LEAD */
+.lead{margin-top:24px;border:2px solid var(--orange);background:linear-gradient(180deg,#fff8f1,#fff)}
+.lead h2{font-size:1.5rem}
+.lead .trust-text{color:var(--muted);margin-bottom:20px}
+.btn{display:block;width:100%;background:var(--orange);color:#fff;border:0;border-radius:14px;padding:17px 20px;font:inherit;font-weight:800;font-size:1.1rem;cursor:pointer;box-shadow:0 8px 20px rgba(255,122,26,.35);transition:.15s}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.legal{display:flex;gap:10px;font-size:.8rem;color:var(--muted);margin:14px 0}
+.legal input{margin-top:3px;accent-color:var(--blue)}
+.legal a{color:var(--blue)}
+.msg{display:none;padding:14px;border-radius:12px;margin-top:14px;font-weight:600;font-size:.95rem}
+.msg.ok{display:block;background:#e8f8ee;color:#166534}
+.msg.err{display:block;background:#fdecec;color:#991b1b}
+.hp{position:absolute;left:-9999px}
+.micro{background:#fff3e6;border-left:4px solid var(--orange);border-radius:8px;padding:12px 14px;font-size:.85rem;color:#7a4a17;margin:0 0 14px}
+.success{text-align:center;padding:28px 12px}
+.success[hidden]{display:none}
+.success .tick{width:64px;height:64px;border-radius:50%;background:var(--ok);color:#fff;font-size:2rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.success p{font-size:1.15rem;font-weight:600;color:var(--navy);max-width:560px;margin:0 auto}
+.err-text{color:#b91c1c;font-size:.8rem;margin-top:4px;display:none}
+.invalid + .err-text,.invalid ~ .err-text{display:block}
+input.invalid,select.invalid{border-color:#dc2626}
+.legal:has(input.invalid) + .err-text{display:block;margin:-8px 0 12px}
+
+/* AD SLOT (AdSense) */
+.ad-slot{margin:28px 0;min-height:0;text-align:center}
+
+/* FAQ */
+.faq{margin:56px 0}
+.faq h2{font-size:1.7rem;color:var(--navy);text-align:center;margin-bottom:6px}
+.faq > p{text-align:center;color:var(--muted);margin-bottom:24px}
+.acc{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.acc button{width:100%;text-align:left;background:none;border:0;padding:18px 20px;font:inherit;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;gap:12px;cursor:pointer;font-size:1rem}
+.acc button::after{content:"+";font-size:1.5rem;line-height:1;color:var(--blue);transition:.2s}
+.acc button[aria-expanded=true]::after{transform:rotate(45deg)}
+.acc .panel{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc .panel p{padding:0 20px 18px;color:var(--muted)}
+
+/* SEO */
+.seo{margin:40px 0;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.seo h2{font-size:1.5rem;color:var(--navy);margin-bottom:12px;line-height:1.25}
+.seo h3{font-size:1.1rem;color:var(--navy);margin:20px 0 6px}
+.seo p{color:var(--muted);margin-bottom:10px}
+.seo a{color:var(--blue)}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:12px}
+.seo table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:620px}
+.seo caption{caption-side:top;text-align:left;font-weight:700;color:var(--navy);padding:12px 14px}
+.seo th,.seo td{padding:10px 14px;text-align:left;border-top:1px solid var(--border)}
+.seo th{background:var(--blue-soft);color:var(--navy);font-size:.82rem}
+.seo td:first-child{font-weight:600;color:var(--navy)}
+/* TABLA DINÁMICA */
+.tbl-filter{background:var(--blue-soft);border-radius:12px;padding:16px;margin:16px 0}
+.tbl-filter label{display:block;font-weight:600;color:var(--navy);margin-bottom:8px;font-size:.95rem}
+.tbl-filter select{background:#fff}
+.tbl-q{font-weight:600;color:var(--navy);margin-bottom:12px !important;font-size:.95rem}
+.tbl-filter .sels{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tbl-filter .sels label{margin-bottom:6px;font-size:.85rem;color:var(--muted)}
+.tbl-filter select:disabled{background:#eef2f7;color:var(--muted);cursor:not-allowed}
+@media(max-width:560px){.tbl-filter .sels{grid-template-columns:1fr}}
+.seo tbody tr{transition:background .15s}
+@media(max-width:640px){
+  .table-wrap{border:0;overflow:visible}
+  .seo table{min-width:0;display:block}
+  .seo caption{display:block;padding:0 0 10px}
+  .seo thead{position:absolute;left:-9999px}
+  .seo tbody{display:grid;gap:12px}
+  .seo tr{display:block;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff}
+  .seo td{display:flex;justify-content:space-between;gap:12px;padding:9px 14px;border-top:1px solid var(--border);text-align:right}
+  .seo td::before{content:attr(data-label);font-weight:600;color:var(--muted);text-align:left}
+  .seo td:first-child{background:var(--blue-soft);border-top:0;color:var(--navy);font-weight:700}
+  .seo td:first-child::before{content:none}
+}
+/* CABECERA FIJA */
+.site-header{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.78);-webkit-backdrop-filter:saturate(180%) blur(12px);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid rgba(11,37,69,.08);transition:background-color .25s ease,box-shadow .25s ease}
+.nav-inner{width:min(1080px,100% - 32px);margin-inline:auto;display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.05rem;color:var(--navy);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand-tld{color:var(--blue)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{color:var(--navy);text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 12px;border-radius:10px;transition:background-color .2s ease,color .2s ease}
+.nav a[aria-current=true]{background:var(--blue-soft);color:var(--blue)}
+.nav-cta{background:var(--orange);color:#fff;text-decoration:none;font-weight:800;font-size:.92rem;padding:10px 18px;border-radius:12px;white-space:nowrap;box-shadow:0 6px 16px rgba(255,122,26,.3);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.nav-toggle{display:none;width:42px;height:42px;border:0;border-radius:10px;background:var(--blue-soft);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+.nav-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav a:focus-visible,.nav-cta:focus-visible,.brand:focus-visible,.nav-toggle:focus-visible{outline:3px solid rgba(31,111,235,.5);outline-offset:2px}
+@media(max-width:860px){
+  .nav-inner{gap:10px}
+  .nav-toggle{display:flex;margin-left:0}
+  .nav-cta{margin-left:auto;padding:9px 14px}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:2px;margin:0;padding:10px 16px 16px;background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);box-shadow:0 12px 24px rgba(11,37,69,.12)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 14px;font-size:1rem}
+}
+@media(max-width:420px){.brand{font-size:.95rem}.brand-ico{display:none}}
+#hero,#tabla-precios,#guia-seo,#faq,#contacto,#sobre-nosotros,.lead h2{scroll-margin-top:84px}
+.hero{padding-top:44px}
+/* GUÍA */
+.guide{margin:56px 0}
+.guide h2{font-size:1.7rem;color:var(--navy);text-align:center;margin-bottom:10px;line-height:1.25}
+.guide-intro{text-align:center;color:var(--muted);max-width:760px;margin:0 auto 24px}
+.guide-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease}
+.guide-card h3{display:flex;align-items:center;gap:10px;font-size:1.25rem;color:var(--navy);margin-bottom:14px}
+.guide-n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-size:.9rem;flex-shrink:0}
+.guide-card h4{font-size:1rem;color:var(--navy);margin-bottom:6px}
+.guide-card p{color:var(--muted);font-size:.94rem;margin-bottom:10px}
+.guide-card a{color:var(--blue);font-weight:600}
+.guide-sub{margin:18px 0 8px}
+.factors,.tips{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.factors,.tips{grid-template-columns:1fr}}
+.factor,.tip{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px}
+.factor p,.tip p{margin-bottom:0}
+.guide table{width:100%;border-collapse:collapse;font-size:.92rem}
+.guide th,.guide td{padding:10px 14px;text-align:left;border-top:1px solid var(--border)}
+.guide th{background:var(--blue-soft);color:var(--navy);font-size:.82rem;border-top:0}
+.guide td:last-child{font-weight:600;color:var(--navy)}
+.guide-list{padding-left:20px;color:var(--muted);font-size:.94rem;margin-bottom:10px}
+.guide-list li{margin-bottom:4px}
+.guide .ad-slot{margin:20px 0}
+/* BLOG */
+.blog{margin:56px 0}
+.blog h2{font-size:1.7rem;color:var(--navy);text-align:center;margin-bottom:10px}
+.blog-intro{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 24px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.blog-grid > div{display:flex}
+.blog-grid > div > .post-card{flex:1}
+@media(max-width:980px){.blog-grid{grid-template-columns:1fr}}
+.post-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease;border-top:4px solid var(--blue)}
+.post-tag{display:inline-block;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:.75rem;padding:4px 10px;border-radius:999px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em}
+.post-card h3{font-size:1.15rem;color:var(--navy);line-height:1.3;margin-bottom:10px}
+.post-card p{color:var(--muted);font-size:.93rem;margin-bottom:10px}
+.post-card ul{padding-left:18px;color:var(--muted);font-size:.92rem;margin-bottom:10px}
+.post-card li{margin-bottom:6px}
+.post-card strong{color:var(--navy)}
+.blog .ad-slot{margin:20px 0}
+/* SOBRE MÍ */
+.me{margin:56px 0}
+.me-card{display:flex;gap:24px;align-items:flex-start;background:linear-gradient(135deg,#fff,#f3f8ff);border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease}
+.me-badge{flex-shrink:0;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy-2));display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 8px 20px rgba(31,111,235,.3)}
+.me-body h2{font-size:1.5rem;color:var(--navy);margin-bottom:10px}
+.me-body p{color:var(--muted);margin-bottom:10px}
+.me-hello{font-size:1.05rem;color:var(--text) !important}
+.me-points{list-style:none;display:grid;gap:12px;margin:16px 0}
+.me-points li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--muted)}
+.me-points li > span{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.me-points strong{color:var(--navy)}
+.me-body a{color:var(--blue);font-weight:600}
+.me-note{font-size:.88rem}
+@media(max-width:640px){.me-card{flex-direction:column;padding:24px}.me-badge{width:60px;height:60px;font-size:1.8rem}}
+#blog,#sobre-mi{scroll-margin-top:84px}
+/* SOBRE NOSOTROS */
+.about{margin:56px 0 40px}
+.about h2{font-size:1.7rem;color:var(--navy);text-align:center;margin-bottom:10px}
+.about-lead{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 24px}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+.about-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.about-ico{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:12px}
+.about-card h3{font-size:1.1rem;color:var(--navy);margin-bottom:6px}
+.about-card p{font-size:.92rem;color:var(--muted)}
+.about-card a{color:var(--blue);font-weight:600}
+/* MICROINTERACCIONES */
+button,select,.nav a,.nav-cta,.brand,label.check,.type,.type input,.acc button,.btn,.cc-btn,.modal-close,[data-modal],footer a,#cookieSettings{cursor:pointer}
+select:disabled{cursor:not-allowed}
+.btn:disabled{cursor:wait}
+select,input[type=text],input[type=tel],input[type=email],input[type=date],textarea{transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+select:focus,input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,111,235,.18),0 6px 16px rgba(31,111,235,.10)}
+.btn,.card,.acc,.cc-btn,.modal-close{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease}
+.btn:focus-visible,.acc button:focus-visible,.cc-btn:focus-visible,.modal-close:focus-visible,footer a:focus-visible,.seo a:focus-visible{outline:3px solid rgba(31,111,235,.5);outline-offset:2px}
+.acc button{transition:background-color .2s ease}
+.acc button[aria-expanded=false] + .panel{visibility:hidden;transition:max-height .3s ease,visibility 0s .3s}
+.acc button[aria-expanded=true] + .panel{visibility:visible;transition:max-height .3s ease,visibility 0s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.fade-in{animation:fadeIn .4s ease both}
+tbody.fade-in{animation:none}
+tbody.fade-in tr{animation:fadeIn .45s ease-out both}
+tbody.fade-in tr:nth-child(2){animation-delay:.07s}
+tbody.fade-in tr:nth-child(3){animation-delay:.14s}
+tbody.fade-in tr:nth-child(4){animation-delay:.21s}
+tbody.fade-in tr:nth-child(5){animation-delay:.28s}
+tbody.fade-in tr:nth-child(n+6){animation-delay:.35s}
+/* Hover/elevación solo en dispositivos con ratón: en táctiles no quedan estados pegados */
+@media (hover:hover) and (pointer:fine){
+  .btn:not(:disabled):hover{background:var(--orange-dark);transform:translateY(-4px);box-shadow:0 14px 28px rgba(255,122,26,.42)}
+  .card:not(.lead):hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(11,37,69,.16)}
+  .acc:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(11,37,69,.10)}
+  .acc button:hover{background:#f5f9ff}
+  .cc-btn:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 8px 18px rgba(11,37,69,.12)}
+  .cc-primary:hover{background:#1858c4}
+  .type:hover div,.check:hover{border-color:#9bbcf0}
+  .seo tbody tr:hover{background:#f5f9ff}
+  .nav-cta:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 10px 22px rgba(255,122,26,.4)}
+  .nav a:hover{background:var(--blue-soft)}
+  .guide-card:hover,.post-card:hover,.me-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(11,37,69,.16)}
+  .modal-close:hover{background:var(--border)}
+  footer a:hover{text-decoration:underline}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+/* BANNER COOKIES */
+.cc{position:fixed;left:0;right:0;bottom:0;z-index:1100;background:#fff;border-top:3px solid var(--blue);box-shadow:0 -8px 30px rgba(11,37,69,.18);padding:16px}
+.cc[hidden]{display:none}
+.cc-inner{width:min(1080px,100%);margin-inline:auto;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.cc-text{flex:1 1 380px;font-size:.88rem;color:var(--text)}
+.cc-text a{color:var(--blue)}
+.cc-pref{flex:1 1 100%;display:grid;gap:8px}
+.cc-pref[hidden]{display:none}
+.cc-opt{display:flex;gap:10px;align-items:center;font-size:.88rem;border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.cc-opt input{width:18px;height:18px;accent-color:var(--blue)}
+.cc-btns{display:flex;flex-wrap:wrap;gap:8px}
+.cc-btn{font:inherit;font-weight:700;font-size:.9rem;padding:11px 18px;border-radius:10px;border:2px solid var(--border);background:#fff;color:var(--navy);cursor:pointer}
+.cc-primary{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(max-width:520px){.cc-btns{width:100%}.cc-btn{flex:1 1 100%}}
+/* MODAL LEGAL */
+.modal{position:fixed;inset:0;background:rgba(11,37,69,.65);display:flex;align-items:center;justify-content:center;padding:16px;z-index:1000}
+.modal[hidden]{display:none}
+.modal-box{position:relative;background:#fff;border-radius:var(--radius);width:min(720px,100%);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.35);outline:none}
+.modal-close{position:absolute;top:10px;right:12px;width:38px;height:38px;border:0;border-radius:50%;background:var(--blue-soft);color:var(--navy);font-size:1.6rem;line-height:1;cursor:pointer;z-index:1}
+.modal-body{overflow-y:auto;padding:28px 26px 26px;font-size:.93rem;color:var(--text)}
+.modal-body h2{font-size:1.4rem;color:var(--navy);margin:0 40px 14px 0}
+.modal-body h3{font-size:1rem;color:var(--navy);margin:18px 0 6px}
+.modal-body p,.modal-body ul{margin-bottom:8px;color:var(--muted)}
+.modal-body ul{padding-left:20px}
+.modal-body a{color:var(--blue)}
+body.modal-open{overflow:hidden}
+footer a{cursor:pointer}
+footer{background:var(--navy);color:#b8c7dc;text-align:center;padding:28px 16px;font-size:.85rem}
+footer a{color:#fff}
+
+/* ====== SUBPÁGINAS (Cuaderno de Ruta y legales) ====== */
+.hero-sm{padding:40px 0 96px}
+main.sub{margin-top:-60px;position:relative}
+.toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+.toc a{background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-weight:600;font-size:.9rem;padding:9px 16px;border-radius:999px;box-shadow:0 2px 8px rgba(11,37,69,.06);transition:border-color .2s ease,color .2s ease}
+.post-full,.legal-sec{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);margin-bottom:24px;scroll-margin-top:84px;transition:transform .2s ease,box-shadow .2s ease}
+.post-full h2,.legal-sec h2{font-size:1.5rem;color:var(--navy);margin:6px 0 12px;line-height:1.3}
+.post-full h3,.legal-sec h3{font-size:1.1rem;color:var(--navy);margin:20px 0 6px}
+.post-full p,.post-full li,.legal-sec p,.legal-sec li{color:var(--muted)}
+.post-full p,.legal-sec p{margin-bottom:10px}
+.post-full ul,.post-full ol,.legal-sec ul{padding-left:22px;margin-bottom:10px}
+.post-full li,.legal-sec li{margin-bottom:6px}
+.post-full strong,.legal-sec strong{color:var(--navy)}
+.post-full a,.legal-sec a{color:var(--blue);font-weight:600}
+.post-meta{font-size:.82rem;color:var(--muted);margin-bottom:6px}
+.callout{background:var(--blue-soft);border-left:4px solid var(--blue);border-radius:10px;padding:14px 16px;margin:14px 0;color:var(--navy);font-size:.95rem}
+.callout p{color:var(--navy) !important;margin:0 !important}
+.cta-box{text-align:center;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--radius);padding:32px 24px;margin:32px 0}
+.cta-box h2{font-size:1.5rem;margin-bottom:8px}
+.cta-box p{opacity:.9;margin-bottom:18px}
+.btn-link{display:inline-block;background:var(--orange);color:#fff;font-weight:800;padding:14px 26px;border-radius:14px;text-decoration:none;box-shadow:0 8px 20px rgba(255,122,26,.35);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;cursor:pointer}
+.btn-link:focus-visible,.toc a:focus-visible,.read-more:focus-visible{outline:3px solid rgba(31,111,235,.5);outline-offset:2px}
+.read-more{display:inline-block;margin-top:6px;color:var(--blue);font-weight:700;text-decoration:none;cursor:pointer}
+.blog-more{text-align:center;margin-top:24px}
+.updated{font-size:.85rem;color:var(--muted);text-align:center;margin-bottom:20px}
+.legal-sec .about{margin:0}
+@media(max-width:640px){.post-full,.legal-sec{padding:22px}}
+@media (hover:hover) and (pointer:fine){
+  .btn-link:hover{background:var(--orange-dark);transform:translateY(-4px);box-shadow:0 14px 28px rgba(255,122,26,.42)}
+  .toc a:hover{border-color:var(--blue);color:var(--blue)}
+  .post-full:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(11,37,69,.16)}
+  .read-more:hover{text-decoration:underline}
+}
+
+/* ====== ARTÍCULOS INDIVIDUALES ====== */
+.article-wrap{max-width:820px;margin-inline:auto}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--blue);text-decoration:none;font-weight:600;cursor:pointer}
+.article-fig{margin:0 0 24px}
+.article-img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow);background:var(--blue-soft)}
+.related{margin:32px 0 8px}
+.related h2{font-size:1.4rem;color:var(--navy);margin-bottom:14px}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.rel-grid{grid-template-columns:1fr}}
+.rel-card{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--navy);box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease;cursor:pointer}
+.rel-card .post-tag{align-self:flex-start;margin:0}
+.rel-card strong{font-size:.98rem;line-height:1.35}
+@media (hover:hover) and (pointer:fine){
+  .rel-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(11,37,69,.16)}
+  .post-full.post-static:hover{transform:none;box-shadow:var(--shadow)}
+}
+
+/* ====== FECHA DE PUBLICACIÓN ====== */
+.hero .pub-line{font-size:.92rem;opacity:.92;margin:-4px 0 14px}
+.post-date{font-size:.8rem;color:var(--muted);margin:0 0 8px !important}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="nav-inner">
+    <a class="brand" href="#hero" aria-label="CalculadoraMudanzas.es, ir al inicio"><span class="brand-ico" aria-hidden="true">🚚</span>CalculadoraMudanzas<span class="brand-tld">.es</span></a>
+    <nav class="nav" id="siteNav" aria-label="Navegación principal">
+      <a href="#hero">Calculadora</a>
+      <a href="#tabla-precios">Precios</a>
+      <a href="blog.html">Cuaderno de Ruta</a>
+      <a href="#sobre-mi">Sobre Mí</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="#contacto">Pedir Presupuesto</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="container">
+    <span class="badge">🚚 Mudanzas locales y nacionales en España</span>
+    <h1>Calculadora de Presupuesto de Mudanza Online</h1>
+    <p>Calcula el coste estimado de tu mudanza local o nacional en menos de 1 minuto. Precios aproximados por provincia, kilómetros y volumen de vivienda.</p>
+    <div class="trust"><span>100% gratis</span><span>Estimación instantánea y sin compromiso</span><span>Sin spam: solo 1 valoración personalizada</span></div>
+  </div>
+</section>
+
+<main class="container">
+  <div class="calc-grid" id="calculadora" data-aos="fade-up">
+    <!-- CALCULADORA -->
+    <section class="card" aria-labelledby="calc-title">
+      <h2 id="calc-title">Calculadora de volumen y precio de mudanza</h2>
+      <p class="sub">Elige las opciones y el precio se actualiza al instante.</p>
+
+      <div class="field" data-aos="fade-up" data-aos-delay="100">
+        <span class="lbl"><span class="step">1</span>Tipo de vivienda</span>
+        <div class="types" id="types">
+          <label class="type"><input type="radio" name="tipo" value="estudio"><div>Estudio<small>hasta 40 m²</small></div></label>
+          <label class="type"><input type="radio" name="tipo" value="piso12" checked><div>Piso 1-2 hab.<small>40-80 m²</small></div></label>
+          <label class="type"><input type="radio" name="tipo" value="piso3"><div>Piso 3+ hab.<small>80-130 m²</small></div></label>
+          <label class="type"><input type="radio" name="tipo" value="casa"><div>Casa / Chalet<small>+130 m²</small></div></label>
+          <label class="type"><input type="radio" name="tipo" value="oficina"><div>Oficina<small>pequeña/mediana</small></div></label>
+        </div>
+      </div>
+
+      <div class="field" data-aos="fade-up" data-aos-delay="200">
+        <span class="lbl"><span class="step">2</span>Origen y destino</span>
+        <div class="two">
+          <div><select id="origen" aria-label="Provincia de origen"></select></div>
+          <div><select id="destino" aria-label="Provincia de destino"></select></div>
+        </div>
+        <p class="disclaimer" id="distInfo"></p>
+      </div>
+
+      <div class="field" data-aos="fade-up" data-aos-delay="300">
+        <span class="lbl"><span class="step">3</span>Servicios adicionales</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" id="embalaje"> Necesito embalaje <b>cajas, protección y mano de obra</b></label>
+          <label class="check"><input type="checkbox" id="montaje"> Montaje / Desmontaje de muebles <b>carpintero</b></label>
+          <label class="check"><input type="checkbox" id="grua"> Elevador / Grúa por fachada <b>para pisos sin acceso</b></label>
+          <label class="check"><input type="checkbox" id="guarda"> Guardamuebles <b>1 mes</b></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <aside class="card result" aria-live="polite">
+      <h2>Tu presupuesto estimado</h2>
+      <p class="sub">Rango orientativo para tu mudanza</p>
+      <div class="price-box" data-aos="fade-up" data-aos-delay="200">
+        <small>Coste estimado</small>
+        <div class="price" id="price">— €</div>
+        <div class="km" id="kmTxt"></div>
+      </div>
+      <ul class="breakdown" id="breakdown" data-aos="fade-up" data-aos-delay="300"></ul>
+      <p class="disclaimer">Estimación orientativa basada en precios medios del mercado español. El precio final depende de inventario, plantas, ascensor y accesos. Solicita presupuesto cerrado para confirmarlo.</p>
+      <a href="#contacto" style="display:block;text-align:center;margin-top:14px;color:var(--blue);font-weight:700;text-decoration:none">Quiero un presupuesto exacto ↓</a>
+    </aside>
+  </div>
+
+  <!-- ANUNCIO ADSENSE (descomenta cuando te aprueben)
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div> -->
+
+  <!-- CONTENIDO SEO -->
+  <section class="seo" id="tabla-precios" aria-labelledby="seo-title" data-aos="fade-up">
+    <h2 id="seo-title">Precios aproximados de mudanzas en España por ciudad y provincia</h2>
+    <p>Consulta el <strong>precio aproximado de una mudanza</strong> según tu punto de partida. Tanto si buscas <strong>mudanzas en Bilbao, precios</strong> como en Madrid, Barcelona, Valencia, Sevilla u otra provincia, elige tu origen y verás las tarifas orientativas a los destinos más frecuentes. Son estimaciones de nuestra calculadora, no tarifas de ninguna empresa concreta.</p>
+    <div class="tbl-filter" data-aos="fade-up" data-aos-delay="100">
+      <p class="tbl-q">Selecciona tu ciudad/provincia de origen para ver la tabla de precios aproximados:</p>
+      <div class="sels">
+        <div>
+          <label for="select-provincia">Provincia de origen</label>
+          <select id="select-provincia">
+            <option value="all" selected>Todas las provincias (Estimación general)</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Vizcaya">Vizcaya / País Vasco</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Zaragoza">Zaragoza</option>
+            <option value="Alicante">Alicante</option>
+            <option value="Málaga">Málaga</option>
+          </select>
+        </div>
+        <div>
+          <label for="select-ciudad">Ciudad / municipio</label>
+          <select id="select-ciudad" disabled>
+            <option value="">Selecciona primero una provincia</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap" data-aos="fade-up" data-aos-delay="200">
+      <table id="tabla-precios-datos">
+        <caption id="tabla-caption">Precio mudanza aproximado en España por tramos de kilómetros</caption>
+        <thead><tr><th>Destino</th><th>Distancia aprox.</th><th>Estudio</th><th>Piso 1-2 hab</th><th>Piso 3+ hab</th><th>Casa / Chalet</th></tr></thead>
+        <tbody id="tabla-body">
+          <tr><td data-label="Destino">Mudanza local (misma ciudad)</td><td data-label="Distancia aprox.">Menos de 30 km</td><td data-label="Estudio">210-280 €</td><td data-label="Piso 1-2 hab">330-450 €</td><td data-label="Piso 3+ hab">530-710 €</td><td data-label="Casa / Chalet">770-1.040 €</td></tr>
+          <tr><td data-label="Destino">Provincias cercanas</td><td data-label="Distancia aprox.">30-100 km</td><td data-label="Estudio">210-320 €</td><td data-label="Piso 1-2 hab">330-500 €</td><td data-label="Piso 3+ hab">530-790 €</td><td data-label="Casa / Chalet">770-1.140 €</td></tr>
+          <tr><td data-label="Destino">Mudanza regional</td><td data-label="Distancia aprox.">100-300 km</td><td data-label="Estudio">240-430 €</td><td data-label="Piso 1-2 hab">370-660 €</td><td data-label="Piso 3+ hab">590-1.010 €</td><td data-label="Casa / Chalet">850-1.440 €</td></tr>
+          <tr><td data-label="Destino">Mudanza entre provincias</td><td data-label="Distancia aprox.">300-600 km</td><td data-label="Estudio">320-590 €</td><td data-label="Piso 1-2 hab">490-890 €</td><td data-label="Piso 3+ hab">750-1.350 €</td><td data-label="Casa / Chalet">1.070-1.880 €</td></tr>
+          <tr><td data-label="Destino">Mudanza de larga distancia</td><td data-label="Distancia aprox.">Más de 600 km</td><td data-label="Estudio">440-800 €</td><td data-label="Piso 1-2 hab">660-1.190 €</td><td data-label="Piso 3+ hab">1.000-1.800 €</td><td data-label="Casa / Chalet">1.400-2.470 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer" id="tabla-nota">Estimación general por tramo de distancia (precio mínimo del inicio del tramo y máximo del final). Elige tu provincia de origen para ver destinos concretos.</p>
+    <h3>Precio de mudanza por km</h3>
+    <p>En trayectos de más de 30 km sumamos un importe por kilómetro que depende del tamaño de la mudanza: desde unos 0,45 €/km en un estudio hasta unos 1,25 €/km en una casa, además de la tarifa base. Así, el <strong>precio de una mudanza entre provincias</strong> crece con la distancia y con el volumen.</p>
+    <h3>Precio de mudanza pequeña</h3>
+    <p>Para una mudanza pequeña (estudio o pocos muebles) elige "Estudio" en la <a href="#calc-title">calculadora de volumen y precio de mudanza</a> y deja origen y destino en la misma provincia. Verás el rango al instante.</p>
+    <p class="disclaimer">Cifras orientativas calculadas con nuestro modelo de precios medios. El precio final depende del inventario, la planta, el ascensor, los accesos y la fecha.</p>
+  </section>
+
+  <!-- LEAD FORM -->
+  <section class="card lead" id="contacto" data-aos="fade-up" aria-labelledby="lead-title">
+    <h2 id="lead-title">Consulta disponibilidad y recibe tu tarifa final cerrada</h2>
+    <p class="trust-text">El cálculo de arriba es una <strong>estimación orientativa</strong>. Envía tus datos para comprobar la disponibilidad de agenda en tu fecha y obtener el <strong>precio final cerrado</strong>, sin compromiso.</p>
+
+    <!-- Web3Forms: sustituye TU_ACCESS_KEY (https://web3forms.com). Para Formspree usa action="https://formspree.io/f/TU_ID" y elimina access_key -->
+    <form id="leadForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="5d61d11c-9162-49e9-a4dd-28e09fdb12b6">
+      <input type="hidden" name="subject" value="Nueva solicitud de presupuesto de mudanza">
+      <input type="hidden" name="from_name" value="Calculadora de Mudanzas">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="detalles_ruta_y_vivienda" id="detalles">
+      <input type="hidden" name="precio_estimado_calculado" id="precioEst">
+
+      <div class="two" data-aos="fade-up" data-aos-delay="100">
+        <div class="field"><label class="lbl" for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre_cliente" autocomplete="name" required placeholder="Ej. María García López">
+          <span class="err-text">Introduce tu nombre.</span></div>
+        <div class="field"><label class="lbl" for="tel">Teléfono de contacto *</label>
+          <input type="tel" id="tel" name="telefono_contacto" autocomplete="tel" required placeholder="600 123 456" pattern="[0-9 +]{9,15}">
+          <span class="err-text">Introduce un teléfono válido.</span></div>
+      </div>
+      <div class="two" data-aos="fade-up" data-aos-delay="200">
+        <div class="field"><label class="lbl" for="email">Correo electrónico *</label>
+          <input type="email" id="email" name="email_cliente" autocomplete="email" required placeholder="tu@email.com">
+          <span class="err-text">Introduce un email válido.</span></div>
+        <div class="field"><label class="lbl" for="fecha">Fecha aproximada de la mudanza *</label>
+          <input type="date" id="fecha" name="fecha_aproximada_mudanza" required>
+          <span class="err-text">Indica una fecha aproximada.</span></div>
+      </div>
+      <div class="field" data-aos="fade-up" data-aos-delay="300"><label class="lbl" for="notas">Notas u observaciones</label>
+        <textarea data-lenis-prevent id="notas" name="notas_observaciones" placeholder="Plantas, ascensor, muebles voluminosos, piano..."></textarea></div>
+
+      <label class="legal"><input type="checkbox" id="priv" name="acepta_privacidad" required>
+        <span>Acepto la <a href="aviso-legal.html#privacidad" target="_blank" rel="noopener">Política de Privacidad</a> y el tratamiento de mis datos para recibir la valoración de mi mudanza. *</span></label>
+      <span class="err-text" id="privErr">Debes aceptar la Política de Privacidad para enviar la solicitud.</span>
+
+      <p class="micro">⏱️ Servicio sujeto a confirmación de disponibilidad de agenda. Una vez enviado, un especialista de zona revisará tu ruta y te contactará en un plazo máximo de 24 horas laborables para darte el precio cerrado final sin compromiso.</p>
+      <button type="submit" class="btn" id="submitBtn">Solicitar Presupuesto Cerrado Gratis</button>
+      <div class="msg" id="formMsg" role="status"></div>
+    </form>
+    <div class="success" id="okBox" role="status" tabindex="-1" hidden>
+      <div class="tick">✓</div>
+      <p id="okText"></p>
+    </div>
+  </section>
+
+  <!-- CUADERNO DE RUTA (vista previa) -->
+  <section class="blog" id="blog" aria-labelledby="blog-title">
+    <h2 id="blog-title" data-aos="fade-up">Cuaderno de Ruta</h2>
+    <p class="blog-intro" data-aos="fade-up" data-aos-delay="100">Guías prácticas para entender cómo se mide, cómo se cobra y cómo se organiza una mudanza. Lee los artículos completos en nuestro cuaderno.</p>
+    <div class="blog-grid" id="blog-preview-list">
+      <!-- ARTÍCULO NUEVO: pega su tarjeta AL PRINCIPIO de esta lista con su data-date (AAAA-MM-DDTHH:MM).
+           Aquí solo se muestran los 3 más recientes; el resto se ve en blog.html. -->
+      <div data-date="2026-10-21T14:28" data-aos="fade-up" data-aos-delay="100">
+        <article class="post-card">
+          <span class="post-tag">Precios</span>
+          <p class="post-date">📅 <time class="pub-date" datetime="2026-10-21T14:28">21 de octubre de 2026 a las 14:28</time></p>
+          <h3>¿Cuánto cuesta una mudanza entre ciudades en España? Precios por ruta</h3>
+          <p>Rangos de precio para Madrid, Barcelona, Valencia, Sevilla y las islas, un ejemplo paso a paso y lo que hace subir o bajar la factura.</p>
+          <a class="read-more" href="precio-mudanza-entre-ciudades.html">Leer el artículo →</a>
+        </article>
+      </div>
+      <div data-date="2026-10-21T14:00" data-aos="fade-up" data-aos-delay="200">
+        <article class="post-card">
+          <span class="post-tag">Ahorro</span>
+          <p class="post-date">📅 <time class="pub-date" datetime="2026-10-21T14:00">21 de octubre de 2026 a las 14:00</time></p>
+          <h3>Consejos para ahorrar dinero y empaquetar cajas eficientemente</h3>
+          <p>Qué hacer antes de empaquetar, cómo llenar las cajas sin romper nada y un calendario de cuatro semanas para llegar al día de la mudanza sin sobresaltos.</p>
+          <a class="read-more" href="ahorrar-y-embalar.html">Leer el artículo →</a>
+        </article>
+      </div>
+      <div data-date="2026-10-21T13:55" data-aos="fade-up" data-aos-delay="300">
+        <article class="post-card">
+          <span class="post-tag">Precio</span>
+          <p class="post-date">📅 <time class="pub-date" datetime="2026-10-21T13:55">21 de octubre de 2026 a las 13:55</time></p>
+          <h3>Factores que influyen en el precio por kilómetro en trayectos nacionales</h3>
+          <p>Tarifa base, kilómetros, peajes, viaje de vuelta, carga compartida e islas: qué entra en el precio de una mudanza entre provincias, con un ejemplo paso a paso.</p>
+          <a class="read-more" href="precio-por-km.html">Leer el artículo →</a>
+        </article>
+      </div>
+      <div data-date="2026-10-21T13:50" data-aos="fade-up" data-aos-delay="400">
+        <article class="post-card">
+          <span class="post-tag">Volumen</span>
+          <p class="post-date">📅 <time class="pub-date" datetime="2026-10-21T13:50">21 de octubre de 2026 a las 13:50</time></p>
+          <h3>¿Cómo calcular los metros cúbicos (m³) de tu mudanza?</h3>
+          <p>El volumen es lo que más pesa en el presupuesto. Aprende a estimarlo por tipo de vivienda y por inventario, con un margen realista para los huecos de carga.</p>
+          <a class="read-more" href="como-calcular-m3.html">Leer el artículo →</a>
+        </article>
+      </div>
+    </div>
+    <script>
+  /* Orden del Cuaderno de Ruta: artículos más recientes primero.
+     Se ordena por data-date (AAAA-MM-DD o AAAA-MM-DDTHH:MM, de mayor a menor). Con la misma fecha se respeta el orden del HTML,
+     así que un artículo nuevo pegado AL PRINCIPIO de la lista se queda el primero. */
+  (function(){
+    var list = document.getElementById('blog-preview-list'); if(!list) return;
+    var items = [].slice.call(list.children).map(function(e,i){ return {e:e, d:e.getAttribute('data-date') || '', i:i}; });
+    items.sort(function(a,b){ return a.d < b.d ? 1 : (a.d > b.d ? -1 : a.i - b.i); });
+    items.forEach(function(o,n){ list.appendChild(o.e); o.e.setAttribute('data-aos-delay', (n + 1) * 100); if(n > 2) o.e.style.display = 'none'; });
+  })();
+</script>
+    <div class="blog-more" data-aos="fade-up" data-aos-delay="200"><a class="btn-link" href="blog.html">Ver todo el Cuaderno de Ruta</a></div>
+  </section>
+
+  <!-- SOBRE MÍ / QUIÉN HAY DETRÁS -->
+  <section class="me" id="sobre-mi" aria-labelledby="me-title">
+    <div data-aos="fade-up">
+      <article class="me-card">
+        <div class="me-badge" aria-hidden="true">👋</div>
+        <div class="me-body">
+          <h2 id="me-title">Quién hay detrás de esta web</h2>
+          <p class="me-hello"><strong>Hola.</strong> Esta plataforma nace de la mano de un especialista independiente en el sector de las mudanzas en España, apasionado por la logística y el transporte nacional.</p>
+          <p>Mi objetivo es ayudarte a estimar el precio real de tu traslado y conectarte con la mejor opción disponible en tu provincia, ofreciéndote una atención directa, personalizada y transparente.</p>
+          <ul class="me-points">
+            <li data-aos="fade-up" data-aos-delay="100"><span aria-hidden="true">✓</span><div><strong>Trato directo con una persona.</strong> Tu solicitud la revisa una persona, no un call-center.</div></li>
+            <li data-aos="fade-up" data-aos-delay="200"><span aria-hidden="true">✓</span><div><strong>Sin llamadas molestas.</strong> Te contactan una vez, para darte tu presupuesto.</div></li>
+            <li data-aos="fade-up" data-aos-delay="300"><span aria-hidden="true">✓</span><div><strong>Tus datos no se venden.</strong> No se reparten entre decenas de empresas: solo se comparten con el profesional de tu zona que valora tu ruta, como explica la <a href="aviso-legal.html#privacidad">Política de Privacidad</a>.</div></li>
+          </ul>
+          <p class="me-note">Mis datos de contacto completos están en el <a href="aviso-legal.html#aviso">Aviso Legal</a>.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title" data-aos="fade-up">
+    <h2 id="faq-title">Preguntas frecuentes sobre el precio de una mudanza</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Resolvemos las dudas más habituales antes de contratar.</p>
+
+    <div data-aos="fade-up" data-aos-delay="100"><div class="acc"><button aria-expanded="false">¿Cuánto cuesta una mudanza entre provincias?</button>
+      <div class="panel"><p>El precio de una mudanza entre provincias depende sobre todo de la distancia y del volumen de tus cosas. Como referencia orientativa, un piso de 1-2 habitaciones entre Bilbao y Madrid (unos 400 km) ronda los 550-730 €, y un piso de 3 o más habitaciones entre 840 y 1.130 €. Cuantos más kilómetros, más sube el coste. Usa la calculadora para ver el rango de tu ruta exacta.</p></div></div></div>
+    <div data-aos="fade-up" data-aos-delay="200"><div class="acc"><button aria-expanded="false">¿Cómo se calcula el precio de una mudanza?</button>
+      <div class="panel"><p>Se combinan tres factores. 1) Kilómetros: las mudanzas locales (hasta unos 30 km) llevan una tarifa base y, a partir de ahí, se suma un importe por km que crece con el tamaño de la vivienda. 2) Volumen: más muebles y cajas significan más metros cúbicos, más operarios y un vehículo mayor; por eso la calculadora usa el tipo de vivienda como indicador del volumen. 3) Planta y accesos: un piso alto sin ascensor, una calle estrecha o un aparcamiento lejano encarecen el servicio, y a veces hace falta elevador o grúa (opción incluida en la calculadora). A todo ello se suman extras como embalaje, montaje de muebles o guardamuebles. El detalle de plantas y accesos se concreta en el presupuesto cerrado.</p></div></div></div>
+    <div data-aos="fade-up" data-aos-delay="300"><div class="acc"><button aria-expanded="false">¿Cuánto se tarda en hacer una mudanza?</button>
+      <div class="panel"><p>Una mudanza local de un piso medio se completa en 4-8 horas. En mudanzas entre provincias, el transporte suele tardar entre 1 y 4 días laborables según la distancia y la ruta, y el servicio puede ser exclusivo o compartido con otras cargas.</p></div></div></div>
+    <div data-aos="fade-up" data-aos-delay="100"><div class="acc"><button aria-expanded="false">¿Cuánto cuesta una mudanza pequeña o por horas?</button>
+      <div class="panel"><p>Una mudanza pequeña (un estudio, o pocos muebles y cajas) dentro de la misma provincia ronda los 210-280 € según nuestra estimación. Si la contratas por horas, lo habitual es una tarifa orientativa de 45-80 € por hora con furgoneta y dos operarios, normalmente con un mínimo de 2-3 horas. Es una buena opción para trayectos cortos y poco volumen; para un piso completo suele compensar un precio cerrado.</p></div></div></div>
+    <div data-aos="fade-up" data-aos-delay="200"><div class="acc"><button aria-expanded="false">¿Cuánto cuesta hacer una mudanza de un piso?</button>
+      <div class="panel"><p>Dentro de la misma provincia (por ejemplo, en Bilbao y alrededores), la estimación es de 330-450 € para un piso de 1-2 habitaciones y de 530-710 € para uno de 3 o más habitaciones. Si cambias de provincia, se suma el coste por kilómetros. El embalaje, el montaje de muebles, el elevador o el guardamuebles se añaden aparte.</p></div></div></div>
+    <div data-aos="fade-up" data-aos-delay="300"><div class="acc"><button aria-expanded="false">¿Necesito algún permiso para mudarme?</button>
+      <div class="panel"><p>Si el camión necesita ocupar la vía pública o usar un elevador, normalmente hay que solicitar un permiso de ocupación o reserva de estacionamiento en el ayuntamiento, con unos días de antelación. Las empresas de mudanzas suelen gestionarlo por ti. En comunidades de vecinos conviene avisar al administrador.</p></div></div></div>
+    <div data-aos="fade-up" data-aos-delay="100"><div class="acc"><button aria-expanded="false">¿Cuándo es más barato mudarse?</button>
+      <div class="panel"><p>Entre semana, a mitad de mes y fuera de la temporada alta (junio-septiembre) hay más disponibilidad y precios más bajos. Los fines de semana y los últimos días de mes son más caros porque coinciden con los fines de alquiler.</p></div></div></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Calculadora de Presupuesto de Mudanza · Las estimaciones son orientativas y no constituyen una oferta vinculante.</p>
+  <p><a href="aviso-legal.html#aviso">Aviso Legal</a> · <a href="aviso-legal.html#privacidad">Política de Privacidad</a> · <a href="aviso-legal.html#cookies">Política de Cookies</a> · <a href="#" id="cookieSettings">Configurar cookies</a> · <a href="blog.html">Cuaderno de Ruta</a> · <a href="#sobre-mi">Sobre mí</a></p>
+</footer>
+
+<!-- BANNER DE COOKIES -->
+<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="cc-inner">
+    <p class="cc-text"><b>Usamos cookies.</b> Las técnicas son necesarias. Las de publicidad (Google AdSense) solo se activarán si las aceptas. Más información en nuestra <a href="aviso-legal.html#cookies">Política de Cookies</a>.</p>
+    <div class="cc-pref" id="ccPref" hidden>
+      <label class="cc-opt"><input type="checkbox" checked disabled> <span><b>Necesarias</b> · siempre activas</span></label>
+      <label class="cc-opt"><input type="checkbox" id="ccAds"> <span><b>Publicidad</b> · anuncios de Google (AdSense)</span></label>
+    </div>
+    <div class="cc-btns">
+      <button type="button" class="cc-btn" id="ccReject">Rechazar</button>
+      <button type="button" class="cc-btn" id="ccConfig">Configurar</button>
+      <button type="button" class="cc-btn cc-primary" id="ccAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+/* Funciones compartidas por todas las páginas: scroll inercial (Lenis), animaciones (AOS),
+   cabecera fija, banner de cookies (Consent Mode v2) y acordeones de FAQ. */
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Año del pie ---------- */
+  if($('year')) $('year').textContent = new Date().getFullYear();
+
+  /* ---------- Fechas de publicación: <time class="pub-date" datetime="AAAA-MM-DDTHH:MM"> se muestra como "21 de octubre de 2026 a las 14:30" ---------- */
+  (function(){
+    var M = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    document.querySelectorAll('time.pub-date[datetime]').forEach(function(t){
+      var m = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/.exec(t.getAttribute('datetime'));
+      if(!m) return;
+      var s = parseInt(m[3], 10) + ' de ' + M[parseInt(m[2], 10) - 1] + ' de ' + m[1];
+      if(m[4]) s += ' a las ' + m[4] + ':' + m[5];
+      t.textContent = s;
+    });
+  })();
+
+  /* ---------- Lenis (scroll con inercia). Se omite con "reducir movimiento" o si no carga ---------- */
+  if(window.Lenis && !reduce){
+    var lenis = new Lenis({duration:1.1, easing:function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); }, smoothWheel:true});
+    window.__lenis = lenis;
+    var raf = function(time){ lenis.raf(time); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+  }
+
+  /* ---------- AOS (se re-ejecuta al subir y al bajar) ---------- */
+  if(window.AOS && !reduce){
+    AOS.init({duration:800, easing:'ease-out-cubic', once:false, mirror:true, offset:80});
+    window.addEventListener('load', function(){ AOS.refresh(); });
+  } else {
+    /* Sin librería o con movimiento reducido: el contenido se muestra siempre */
+    document.querySelectorAll('[data-aos]').forEach(function(e){ e.removeAttribute('data-aos'); });
+  }
+
+  /* ---------- Cabecera fija: menú móvil, scroll con offset y enlace activo ---------- */
+  (function(){
+    var hd = document.querySelector('.site-header'), nav = $('siteNav'), tg = $('navToggle');
+    window.__navOffset = function(){ return (hd ? hd.offsetHeight : 0) + 12; };
+    /* Posición real en el documento ignorando transforms (AOS desplaza las secciones 100px antes de animarlas) */
+    function layoutTop(el){ var y = 0; while(el){ y += el.offsetTop; el = el.offsetParent; } return y; }
+    window.__scrollToEl = function(el){
+      var y = Math.max(0, layoutTop(el) - window.__navOffset());
+      if(window.__lenis) window.__lenis.scrollTo(y); else window.scrollTo({top:y, behavior:'smooth'});
+    };
+    /* Enlaces a una sección de la misma página (#id). Los enlaces a otras páginas siguen su curso normal */
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if(!a) return;
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var el = document.querySelector(id);
+      if(!el) return;
+      e.preventDefault();
+      window.__scrollToEl(el);
+    });
+    /* Al llegar desde otra página con #ancla (p. ej. blog.html#precio-por-km), bajar hasta la sección bajo la cabecera */
+    window.addEventListener('load', function(){
+      if(location.hash.length < 2) return;
+      var t = null;
+      try{ t = document.querySelector(location.hash); }catch(err){}
+      if(t) setTimeout(function(){ window.__scrollToEl(t); }, 150);
+    });
+    if(!nav || !tg) return;
+    function closeNav(){ nav.classList.remove('open'); tg.setAttribute('aria-expanded','false'); tg.setAttribute('aria-label','Abrir menú'); }
+    tg.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      tg.setAttribute('aria-expanded', open ? 'true' : 'false'); tg.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    document.querySelectorAll('.site-header a').forEach(function(a){ a.addEventListener('click', closeNav); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+    /* Resaltado de la sección visible (solo enlaces #id de la propia página) */
+    var links = {};
+    document.querySelectorAll('.nav a').forEach(function(a){
+      var h = a.getAttribute('href');
+      if(h && h.charAt(0) === '#') links[h.slice(1)] = a;
+    });
+    var ids = Object.keys(links);
+    if(ids.length && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(!en.isIntersecting) return;
+          Object.keys(links).forEach(function(k){ links[k].removeAttribute('aria-current'); });
+          var a = links[en.target.id]; if(a) a.setAttribute('aria-current', 'true');
+        });
+      }, {rootMargin:'-35% 0px -60% 0px'});
+      ids.forEach(function(id){ var el = $(id); if(el) io.observe(el); });
+    }
+  })();
+
+  /* ---------- Cookies + Google Consent Mode v2 ---------- */
+  (function(){
+    var cc = $('cc');
+    if(!cc) return;
+    var ADSENSE_ID = ''; /* Pon aquí tu ID cuando te aprueben, ej. 'ca-pub-1234567890123456' */
+    var CC_KEY = 'cookie_consent_v1', adsLoaded = false;
+    function ccGet(){ try{ return localStorage.getItem(CC_KEY); }catch(e){ return null; } }
+    function ccSet(v){ try{ localStorage.setItem(CC_KEY, v); }catch(e){} }
+    function applyConsent(ads){
+      var s = ads ? 'granted' : 'denied';
+      gtag('consent', 'update', {ad_storage:s, ad_user_data:s, ad_personalization:s, analytics_storage:'denied'});
+      if(ads && ADSENSE_ID && !adsLoaded){
+        adsLoaded = true;
+        var sc = document.createElement('script'); sc.async = true; sc.crossOrigin = 'anonymous';
+        sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_ID;
+        document.head.appendChild(sc);
+      }
+    }
+    function ccChoose(ads){ ccSet(ads ? 'granted' : 'denied'); applyConsent(ads); cc.hidden = true; }
+    function ccShow(){ $('ccAds').checked = ccGet() === 'granted'; $('ccPref').hidden = true; $('ccConfig').textContent = 'Configurar'; cc.hidden = false; }
+    $('ccAccept').addEventListener('click', function(){ ccChoose(true); });
+    $('ccReject').addEventListener('click', function(){ ccChoose(false); });
+    $('ccConfig').addEventListener('click', function(){
+      if($('ccPref').hidden){ $('ccPref').hidden = false; this.textContent = 'Guardar selección'; }
+      else { ccChoose($('ccAds').checked); }
+    });
+    if($('cookieSettings')) $('cookieSettings').addEventListener('click', function(e){ e.preventDefault(); ccShow(); });
+    var saved = ccGet();
+    if(saved === 'granted'){ applyConsent(true); } else if(saved === 'denied'){ applyConsent(false); } else { ccShow(); }
+  })();
+
+  /* ---------- Acordeón FAQ (accesible) ---------- */
+  document.querySelectorAll('.acc').forEach(function(a, i){
+    var b = a.querySelector('button'), p = a.querySelector('.panel');
+    b.id = 'faq-b' + i; p.id = 'faq-p' + i;
+    b.setAttribute('aria-controls', p.id); p.setAttribute('role', 'region'); p.setAttribute('aria-labelledby', b.id);
+  });
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.acc button[aria-expanded=true]').forEach(function(b){ var p = b.nextElementSibling; p.style.maxHeight = p.scrollHeight + 'px'; });
+  });
+  document.querySelectorAll('.acc button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.acc button').forEach(function(x){
+        x.setAttribute('aria-expanded', 'false'); x.nextElementSibling.style.maxHeight = null;
+      });
+      if(!open){ b.setAttribute('aria-expanded', 'true'); b.nextElementSibling.style.maxHeight = b.nextElementSibling.scrollHeight + 'px'; }
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+
+
+  /* Provincias: [nombre, lat, lon, zona]  zona: P=península, I=islas */
+  var PROV = [
+    ['A Coruña',43.37,-8.40,'P'],['Álava',42.85,-2.67,'P'],['Albacete',38.99,-1.86,'P'],['Alicante',38.35,-0.48,'P'],
+    ['Almería',36.84,-2.46,'P'],['Asturias',43.36,-5.85,'P'],['Ávila',40.66,-4.70,'P'],['Badajoz',38.88,-6.97,'P'],
+    ['Baleares',39.57,2.65,'I'],['Barcelona',41.39,2.17,'P'],['Burgos',42.34,-3.70,'P'],['Cáceres',39.47,-6.37,'P'],
+    ['Cádiz',36.53,-6.29,'P'],['Cantabria',43.46,-3.81,'P'],['Castellón',39.99,-0.04,'P'],['Ciudad Real',38.99,-3.93,'P'],
+    ['Córdoba',37.89,-4.78,'P'],['Cuenca',40.07,-2.14,'P'],['Girona',41.98,2.82,'P'],['Granada',37.18,-3.60,'P'],
+    ['Guadalajara',40.63,-3.17,'P'],['Guipúzcoa',43.32,-1.98,'P'],['Huelva',37.26,-6.95,'P'],['Huesca',42.14,-0.41,'P'],
+    ['Jaén',37.77,-3.79,'P'],['La Rioja',42.47,-2.45,'P'],['Las Palmas',28.12,-15.43,'I'],['León',42.60,-5.57,'P'],
+    ['Lleida',41.62,0.62,'P'],['Lugo',43.01,-7.56,'P'],['Madrid',40.42,-3.70,'P'],['Málaga',36.72,-4.42,'P'],
+    ['Murcia',37.99,-1.13,'P'],['Navarra',42.82,-1.64,'P'],['Ourense',42.34,-7.86,'P'],['Palencia',42.01,-4.53,'P'],
+    ['Pontevedra',42.43,-8.64,'P'],['Salamanca',40.97,-5.66,'P'],['Santa Cruz de Tenerife',28.47,-16.25,'I'],['Segovia',40.95,-4.12,'P'],
+    ['Sevilla',37.39,-5.98,'P'],['Soria',41.76,-2.46,'P'],['Tarragona',41.12,1.25,'P'],['Teruel',40.34,-1.11,'P'],
+    ['Toledo',39.86,-4.02,'P'],['Valencia',39.47,-0.38,'P'],['Valladolid',41.65,-4.72,'P'],['Vizcaya',43.26,-2.93,'P'],
+    ['Zamora',41.50,-5.75,'P'],['Zaragoza',41.65,-0.89,'P']
+  ];
+
+  /* Tarifas: base local, € por km (>30 km), embalaje, montaje, guardamuebles (1 mes) */
+  var TARIFAS = {
+    estudio:{n:'Estudio',          base:240,km:0.45,emb:90, mon:80, gua:70},
+    piso12: {n:'Piso 1-2 hab.',    base:380,km:0.65,emb:160,mon:130,gua:110},
+    piso3:  {n:'Piso 3+ hab.',     base:600,km:0.95,emb:290,mon:210,gua:180},
+    casa:   {n:'Casa / Chalet',    base:880,km:1.25,emb:420,mon:300,gua:260},
+    oficina:{n:'Oficina',          base:700,km:1.00,emb:320,mon:170,gua:200}
+  };
+  var GRUA = 230, RECARGO_ISLAS = 550, KM_LOCAL = 30, FACTOR_RUTA = 1.25;
+
+  var $ = function(id){return document.getElementById(id)};
+  var selO = $('origen'), selD = $('destino');
+
+  function fillSelect(sel, def){
+    sel.innerHTML = '';
+    PROV.forEach(function(p,i){
+      var o = document.createElement('option'); o.value = i; o.textContent = p[0];
+      if(p[0]===def) o.selected = true; sel.appendChild(o);
+    });
+  }
+  fillSelect(selO,'Madrid'); fillSelect(selD,'Madrid');
+
+  function haversine(a,b){
+    var R=6371, rad=Math.PI/180;
+    var dLat=(b[1]-a[1])*rad, dLon=(b[2]-a[2])*rad;
+    var h=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a[1]*rad)*Math.cos(b[1]*rad)*Math.sin(dLon/2)*Math.sin(dLon/2);
+    return 2*R*Math.asin(Math.sqrt(h));
+  }
+  var fmt = function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')};
+  var eur = function(n){return fmt(n)+' €'};
+  var round10 = function(n){return Math.round(n/10)*10};
+
+  var lastPrice = '';
+  function calcular(){
+    var tipo = document.querySelector('input[name=tipo]:checked').value;
+    var t = TARIFAS[tipo];
+    var o = PROV[selO.value], d = PROV[selD.value];
+    var mismaProv = selO.value === selD.value;
+    var km = mismaProv ? 0 : Math.round(haversine(o,d)*FACTOR_RUTA);
+    var lines = [];
+
+    var transporte = t.base;
+    lines.push(['Mudanza local base ('+t.n+')', t.base]);
+    if(!mismaProv){
+      var extraKm = Math.max(0, km - KM_LOCAL);
+      var costeKm = extraKm * t.km;
+      transporte += costeKm;
+      lines.push(['Transporte '+km+' km', costeKm]);
+    }
+    var total = transporte;
+
+    if(o[3]!==d[3] || (o[3]==='I' && !mismaProv)){ total += RECARGO_ISLAS; lines.push(['Recargo ferry / islas', RECARGO_ISLAS]); }
+    if($('embalaje').checked){ total += t.emb; lines.push(['Embalaje', t.emb]); }
+    if($('montaje').checked){ total += t.mon; lines.push(['Montaje / desmontaje', t.mon]); }
+    if($('grua').checked){ total += GRUA; lines.push(['Elevador / grúa', GRUA]); }
+    if($('guarda').checked){ total += t.gua; lines.push(['Guardamuebles (1 mes)', t.gua]); }
+
+    var min = round10(total*0.88), max = round10(total*1.18);
+    var txt = eur(min)+' - '+eur(max);
+
+    var pe = $('price'); pe.textContent = txt;
+    if(txt!==lastPrice){ pe.classList.add('bump'); setTimeout(function(){pe.classList.remove('bump')},180); lastPrice = txt; }
+    $('kmTxt').textContent = mismaProv ? 'Mudanza local (misma provincia)' : 'Mudanza nacional · ≈ '+km+' km';
+    $('distInfo').textContent = mismaProv ? 'Misma provincia: se aplica tarifa de mudanza local.' : 'Distancia aproximada por carretera: '+km+' km.';
+
+    $('breakdown').innerHTML = lines.map(function(l){
+      return '<li><span>'+l[0]+'</span><span>'+eur(Math.round(l[1]))+'</span></li>';
+    }).join('');
+
+    var extras = {embalaje:'Embalaje',montaje:'Montaje/desmontaje',grua:'Elevador/grúa',guarda:'Guardamuebles'};
+    var sel = Object.keys(extras).filter(function(i){return $(i).checked}).map(function(i){return extras[i]});
+    $('detalles').value = 'Origen: '+o[0]+' | Destino: '+d[0]+' | Vivienda: '+t.n+' | Distancia aprox.: '+km+' km | Extras: '+(sel.length?sel.join(', '):'ninguno');
+    $('detalles').dataset.ruta = o[0]+' → '+d[0];
+    $('precioEst').value = txt;
+  }
+
+  document.querySelectorAll('input[name=tipo],#embalaje,#montaje,#grua,#guarda').forEach(function(el){el.addEventListener('change',calcular)});
+  selO.addEventListener('change',calcular); selD.addEventListener('change',calcular);
+  calcular();
+
+  /* Fecha mínima: hoy */
+  var f = $('fecha'); f.min = new Date().toISOString().split('T')[0];
+  $('year').textContent = new Date().getFullYear();
+
+  /* Formulario */
+  var form = $('leadForm'), msg = $('formMsg'), btn = $('submitBtn');
+  form.querySelectorAll('input,textarea').forEach(function(el){
+    el.addEventListener('blur',function(){ if(el.required) el.classList.toggle('invalid', !el.checkValidity()); });
+    el.addEventListener('input',function(){ if(el.classList.contains('invalid') && el.checkValidity()) el.classList.remove('invalid'); });
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    msg.className='msg';
+    var ok = true;
+    form.querySelectorAll('[required]').forEach(function(el){
+      var valid = el.checkValidity(); el.classList.toggle('invalid',!valid); if(!valid) ok=false;
+    });
+    if(!ok){ msg.className='msg err'; msg.textContent='Revisa los campos marcados y acepta la política de privacidad.'; return; }
+    if(form.elements.access_key.value==='TU_ACCESS_KEY'/*placeholder: ya configurada*/){
+      msg.className='msg err'; msg.textContent='Falta configurar tu access_key de Web3Forms (o tu endpoint de Formspree) en el formulario.'; return;
+    }
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success!==false,j:j}})})
+      .then(function(res){
+        if(res.ok){
+          var nombre = ($('nombre').value.trim().split(/\s+/)[0]) || '';
+          var ruta = $('detalles').dataset.ruta;
+          $('okText').textContent = '¡Gracias '+nombre+'! Hemos recibido tu solicitud. Nuestro equipo revisará la ruta '+ruta+' y te contactaremos por teléfono o WhatsApp en menos de 24 horas con el presupuesto final cerrado.';
+          form.hidden = true; $('okBox').hidden = false;
+          var h2 = document.querySelector('.lead h2');
+          if(window.__scrollToEl) window.__scrollToEl(h2); else h2.scrollIntoView({behavior:'smooth',block:'start'});
+          $('okBox').focus();
+        } else { throw new Error(); }
+      })
+      .catch(function(){ msg.className='msg err'; msg.textContent='No se pudo enviar. Inténtalo de nuevo en unos minutos.'; })
+      .finally(function(){ btn.disabled=false; btn.textContent='Solicitar Presupuesto Cerrado Gratis'; });
+  });
+
+  /* Tabla de precios dinámica (provincia + ciudad) */
+  (function(){
+    var selP = $('select-provincia'), selC = $('select-ciudad'), body = $('tabla-body'), cap = $('tabla-caption'), nota = $('tabla-nota');
+    if(!selP || !selC || !body) return;
+    var FIJAS = ['Madrid','Barcelona','Vizcaya','Valencia','Sevilla','Zaragoza','Alicante','Málaga'];
+    var MUNI = {
+      "A Coruña":"A Coruña,43.37,-8.40;Santiago de Compostela,42.88,-8.54;Ferrol,43.48,-8.23;Narón,43.50,-8.14;Oleiros,43.33,-8.31;Arteixo,43.30,-8.51;Carballo,43.21,-8.69;Culleredo,43.29,-8.38;Ribeira,42.56,-9.00;Cambre,43.29,-8.34;Betanzos,43.28,-8.21;Sada,43.35,-8.25",
+      "Álava":"Vitoria-Gasteiz,42.85,-2.67;Llodio,43.14,-2.96;Amurrio,43.05,-3.00;Alegría-Dulantzi,42.84,-2.51;Salvatierra,42.86,-2.37;Laguardia,42.55,-2.58;Oyón,42.41,-2.42",
+      "Albacete":"Albacete,38.99,-1.86;Hellín,38.51,-1.70;Villarrobledo,39.27,-2.60;Almansa,38.87,-1.10;La Roda,39.21,-2.15;Caudete,38.71,-0.99;Tobarra,38.60,-1.69;Chinchilla de Monte-Aragón,38.92,-1.73;Casas-Ibáñez,39.28,-1.46;Tarazona de la Mancha,39.26,-1.92",
+      "Alicante":"Alicante,38.35,-0.48;Elche,38.27,-0.70;Torrevieja,37.98,-0.68;Orihuela,38.08,-0.94;Benidorm,38.54,-0.13;Alcoy,38.70,-0.47;San Vicente del Raspeig,38.40,-0.52;Elda,38.48,-0.79;Dénia,38.84,0.11;Santa Pola,38.19,-0.56;Villena,38.63,-0.87;Petrer,38.48,-0.77;Calp,38.64,0.04",
+      "Almería":"Almería,36.84,-2.46;Roquetas de Mar,36.76,-2.61;El Ejido,36.78,-2.81;Níjar,36.97,-2.21;Vícar,36.83,-2.64;Adra,36.75,-3.02;Huércal-Overa,37.39,-1.94;Vera,37.25,-1.86;Huércal de Almería,36.89,-2.44;La Mojonera,36.77,-2.70",
+      "Asturias":"Gijón,43.53,-5.66;Oviedo,43.36,-5.85;Avilés,43.56,-5.92;Siero,43.39,-5.66;Langreo,43.30,-5.69;Mieres,43.25,-5.77;Castrillón,43.58,-6.03;San Martín del Rey Aurelio,43.28,-5.68;Llanera,43.43,-5.83;Corvera de Asturias,43.50,-5.85;Cangas de Onís,43.35,-5.13;Llanes,43.42,-4.75",
+      "Ávila":"Ávila,40.66,-4.70;Arévalo,41.06,-4.72;Arenas de San Pedro,40.21,-5.09;Candeleda,40.16,-5.24;Sotillo de la Adrada,40.29,-4.57;El Barraco,40.44,-4.62;Las Navas del Marqués,40.60,-4.34;Cebreros,40.46,-4.47;Navaluenga,40.37,-4.70;Piedrahíta,40.46,-5.33",
+      "Badajoz":"Badajoz,38.88,-6.97;Mérida,38.92,-6.34;Don Benito,38.96,-5.86;Almendralejo,38.68,-6.41;Villanueva de la Serena,38.97,-5.80;Zafra,38.42,-6.42;Montijo,38.91,-6.62;Olivenza,38.68,-7.10;Villafranca de los Barros,38.56,-6.34;Llerena,38.24,-6.02",
+      "Baleares":"Palma,39.57,2.65;Calvià,39.57,2.51;Ibiza,38.91,1.43;Manacor,39.57,3.21;Llucmajor,39.49,2.89;Marratxí,39.64,2.76;Maó,39.89,4.26;Inca,39.72,2.91;Santa Eulalia del Río,38.98,1.53;Ciutadella de Menorca,40.00,3.84;Alcúdia,39.85,3.12;Sant Antoni de Portmany,38.98,1.30",
+      "Barcelona":"Barcelona,41.39,2.17;L'Hospitalet de Llobregat,41.36,2.10;Badalona,41.45,2.25;Terrassa,41.56,2.01;Sabadell,41.54,2.11;Mataró,41.54,2.44;Santa Coloma de Gramenet,41.45,2.21;Cornellà de Llobregat,41.36,2.07;Sant Cugat del Vallès,41.47,2.09;Manresa,41.73,1.83;Rubí,41.49,2.03;Vilanova i la Geltrú,41.22,1.73;Granollers,41.61,2.29",
+      "Burgos":"Burgos,42.34,-3.70;Miranda de Ebro,42.69,-2.95;Aranda de Duero,41.67,-3.69;Briviesca,42.55,-3.32;Medina de Pomar,42.93,-3.48;Lerma,42.03,-3.75;Salas de los Infantes,42.02,-3.28;Belorado,42.42,-3.19;Villagonzalo Pedernales,42.33,-3.62",
+      "Cáceres":"Cáceres,39.47,-6.37;Plasencia,40.03,-6.09;Navalmoral de la Mata,39.89,-5.54;Coria,39.99,-6.54;Trujillo,39.46,-5.88;Miajadas,39.15,-5.90;Moraleja,40.06,-6.65;Jaraíz de la Vera,40.07,-5.75;Valencia de Alcántara,39.41,-7.24;Arroyo de la Luz,39.49,-6.59",
+      "Cádiz":"Jerez de la Frontera,36.68,-6.14;Cádiz,36.53,-6.29;Algeciras,36.13,-5.45;San Fernando,36.46,-6.20;El Puerto de Santa María,36.60,-6.23;Chiclana de la Frontera,36.42,-6.15;Sanlúcar de Barrameda,36.78,-6.35;La Línea de la Concepción,36.17,-5.35;Puerto Real,36.53,-6.19;Barbate,36.19,-5.92;Conil de la Frontera,36.28,-6.09;Arcos de la Frontera,36.75,-5.81;Rota,36.62,-6.36",
+      "Cantabria":"Santander,43.46,-3.81;Torrelavega,43.35,-4.05;Castro-Urdiales,43.38,-3.22;Camargo,43.41,-3.88;Piélagos,43.43,-3.93;El Astillero,43.40,-3.82;Santa Cruz de Bezana,43.45,-3.85;Laredo,43.41,-3.41;Los Corrales de Buelna,43.26,-4.07;Santoña,43.44,-3.46;Colindres,43.40,-3.45;Reinosa,43.00,-4.14",
+      "Castellón":"Castellón de la Plana,39.99,-0.04;Vila-real,39.94,-0.10;Burriana,39.89,-0.09;Vinaròs,40.47,0.48;La Vall d'Uixó,39.82,-0.23;Benicarló,40.42,0.43;Onda,39.96,-0.26;Almassora,39.95,-0.06;Nules,39.85,-0.15;Segorbe,39.85,-0.49;Peñíscola,40.36,0.41;Benicàssim,40.05,0.07",
+      "Ciudad Real":"Ciudad Real,38.99,-3.93;Puertollano,38.69,-4.11;Tomelloso,39.16,-3.02;Alcázar de San Juan,39.39,-3.21;Valdepeñas,38.76,-3.38;Manzanares,38.99,-3.37;Daimiel,39.07,-3.61;La Solana,38.94,-3.24;Campo de Criptana,39.40,-3.12;Miguelturra,38.96,-3.89;Bolaños de Calatrava,38.91,-3.65",
+      "Córdoba":"Córdoba,37.89,-4.78;Lucena,37.41,-4.48;Puente Genil,37.39,-4.77;Montilla,37.59,-4.64;Priego de Córdoba,37.44,-4.20;Cabra,37.47,-4.44;Palma del Río,37.70,-5.28;Baena,37.62,-4.32;Pozoblanco,38.38,-4.85;Peñarroya-Pueblonuevo,38.31,-5.27;Aguilar de la Frontera,37.51,-4.65;Rute,37.32,-4.37",
+      "Cuenca":"Cuenca,40.07,-2.14;Tarancón,40.01,-3.01;San Clemente,39.40,-2.43;Motilla del Palancar,39.57,-1.90;Las Pedroñeras,39.44,-2.69;Quintanar del Rey,39.34,-1.93;Mota del Cuervo,39.50,-2.87;Iniesta,39.44,-1.75;Belmonte,39.56,-2.71;Horcajo de Santiago,39.83,-2.72",
+      "Girona":"Girona,41.98,2.82;Figueres,42.27,2.96;Blanes,41.67,2.79;Lloret de Mar,41.70,2.84;Olot,42.18,2.49;Salt,41.97,2.79;Palafrugell,41.92,3.16;Sant Feliu de Guíxols,41.78,3.03;Roses,42.26,3.18;Banyoles,42.12,2.77;Palamós,41.85,3.13;Santa Coloma de Farners,41.86,2.67",
+      "Granada":"Granada,37.18,-3.60;Motril,36.75,-3.52;Almuñécar,36.73,-3.69;Armilla,37.14,-3.62;Maracena,37.21,-3.63;Las Gabias,37.13,-3.66;Loja,37.17,-4.15;Guadix,37.30,-3.14;Baza,37.49,-2.77;Albolote,37.23,-3.65;Atarfe,37.22,-3.69;La Zubia,37.12,-3.58",
+      "Guadalajara":"Guadalajara,40.63,-3.17;Azuqueca de Henares,40.57,-3.26;Cabanillas del Campo,40.63,-3.23;El Casar,40.69,-3.41;Alovera,40.59,-3.26;Marchamalo,40.67,-3.20;Yebes,40.62,-3.19;Villanueva de la Torre,40.63,-3.30;Sigüenza,41.07,-2.64;Molina de Aragón,40.84,-1.89",
+      "Guipúzcoa":"San Sebastián,43.32,-1.98;Irún,43.34,-1.79;Errenteria,43.31,-1.90;Eibar,43.18,-2.47;Zarautz,43.28,-2.17;Arrasate/Mondragón,43.06,-2.49;Hernani,43.27,-1.98;Hondarribia,43.36,-1.79;Tolosa,43.14,-2.07;Pasaia,43.32,-1.93;Lasarte-Oria,43.27,-2.01;Beasain,43.05,-2.20",
+      "Huelva":"Huelva,37.26,-6.95;Lepe,37.25,-7.20;Almonte,37.26,-6.52;Moguer,37.27,-6.84;Isla Cristina,37.20,-7.32;Ayamonte,37.21,-7.40;Cartaya,37.28,-7.15;Bollullos Par del Condado,37.34,-6.54;Punta Umbría,37.18,-6.97;San Juan del Puerto,37.31,-6.83;Valverde del Camino,37.57,-6.75;Aljaraque,37.27,-7.02",
+      "Huesca":"Huesca,42.14,-0.41;Monzón,41.91,0.19;Barbastro,42.04,0.13;Fraga,41.52,0.35;Jaca,42.57,-0.55;Sabiñánigo,42.52,-0.36;Binéfar,41.85,0.29;Tamarite de Litera,41.87,0.43;Graus,42.19,0.33;Sariñena,41.78,-0.15",
+      "Jaén":"Jaén,37.78,-3.79;Linares,38.09,-3.64;Andújar,38.04,-4.05;Úbeda,38.01,-3.37;Alcalá la Real,37.46,-3.92;Martos,37.72,-3.97;Bailén,38.10,-3.78;Baeza,37.99,-3.47;Torredonjimeno,37.77,-3.95;Villacarrillo,38.12,-3.10;Alcaudete,37.59,-4.09;La Carolina,38.28,-3.61",
+      "La Rioja":"Logroño,42.47,-2.45;Calahorra,42.31,-1.96;Arnedo,42.23,-2.10;Haro,42.58,-2.85;Santo Domingo de la Calzada,42.44,-2.95;Nájera,42.42,-2.73;Alfaro,42.18,-1.75;Lardero,42.43,-2.45;Villamediana de Iregua,42.44,-2.39;Cervera del Río Alhama,42.02,-1.96;Autol,42.21,-2.00",
+      "Las Palmas":"Las Palmas de Gran Canaria,28.12,-15.43;Telde,27.99,-15.42;Santa Lucía de Tirajana,27.91,-15.54;San Bartolomé de Tirajana,27.76,-15.57;Arucas,28.12,-15.52;Arrecife,28.96,-13.55;Ingenio,27.92,-15.44;Agüimes,27.91,-15.45;Gáldar,28.15,-15.65;Teguise,29.06,-13.56;Puerto del Rosario,28.50,-13.86;Mogán,27.88,-15.72",
+      "León":"León,42.60,-5.57;Ponferrada,42.55,-6.60;San Andrés del Rabanedo,42.62,-5.62;Astorga,42.46,-6.06;La Bañeza,42.30,-5.90;Villaquilambre,42.64,-5.55;Valencia de Don Juan,42.29,-5.52;Bembibre,42.62,-6.43;Villablino,42.94,-6.32;Cacabelos,42.60,-6.73;Sahagún,42.37,-5.03;Boñar,42.87,-5.32",
+      "Lleida":"Lleida,41.62,0.62;Balaguer,41.79,0.81;Tàrrega,41.65,1.14;Mollerussa,41.63,0.89;La Seu d'Urgell,42.36,1.46;Cervera,41.67,1.27;Alpicat,41.67,0.57;Solsona,41.99,1.52;Tremp,42.17,0.89;Almacelles,41.73,0.43;Les Borges Blanques,41.52,0.87;Vielha e Mijaran,42.70,0.80",
+      "Lugo":"Lugo,43.01,-7.56;Monforte de Lemos,42.52,-7.51;Viveiro,43.66,-7.59;Vilalba,43.30,-7.68;Burela,43.66,-7.36;Foz,43.57,-7.26;Sarria,42.78,-7.41;Ribadeo,43.54,-7.04;Chantada,42.61,-7.77;Monterroso,42.79,-7.83",
+      "Madrid":"Madrid,40.42,-3.70;Móstoles,40.32,-3.86;Alcalá de Henares,40.48,-3.36;Fuenlabrada,40.28,-3.80;Leganés,40.33,-3.76;Getafe,40.31,-3.73;Alcorcón,40.35,-3.82;Torrejón de Ardoz,40.46,-3.48;Parla,40.24,-3.77;Alcobendas,40.55,-3.64;Las Rozas de Madrid,40.49,-3.87;San Sebastián de los Reyes,40.55,-3.63;Pozuelo de Alarcón,40.43,-3.81;Rivas-Vaciamadrid,40.35,-3.54;Coslada,40.43,-3.56",
+      "Málaga":"Málaga,36.72,-4.42;Marbella,36.51,-4.89;Vélez-Málaga,36.78,-4.10;Mijas,36.60,-4.64;Fuengirola,36.54,-4.63;Torremolinos,36.62,-4.50;Benalmádena,36.60,-4.57;Estepona,36.43,-5.15;Rincón de la Victoria,36.72,-4.27;Antequera,37.02,-4.56;Ronda,36.74,-5.17;Alhaurín de la Torre,36.66,-4.56;Nerja,36.75,-3.88",
+      "Murcia":"Murcia,37.99,-1.13;Cartagena,37.60,-0.99;Lorca,37.68,-1.70;Molina de Segura,38.05,-1.21;Alcantarilla,37.97,-1.22;Torre-Pacheco,37.74,-0.96;Águilas,37.41,-1.58;Cieza,38.24,-1.42;Yecla,38.61,-1.11;Mazarrón,37.60,-1.31;San Javier,37.80,-0.84;Jumilla,38.48,-1.33;Totana,37.77,-1.50",
+      "Navarra":"Pamplona,42.81,-1.65;Tudela,42.06,-1.61;Barañáin,42.80,-1.68;Burlada,42.83,-1.60;Estella-Lizarra,42.67,-2.03;Zizur Mayor,42.78,-1.69;Tafalla,42.53,-1.67;Villava,42.83,-1.61;Ansoáin,42.83,-1.63;Cintruénigo,42.07,-1.80;Corella,42.11,-1.78;Alsasua,42.90,-2.17;Sangüesa,42.57,-1.28",
+      "Ourense":"Ourense,42.34,-7.86;Verín,41.94,-7.44;O Barco de Valdeorras,42.42,-6.98;O Carballiño,42.43,-8.07;Xinzo de Limia,42.06,-7.72;Ribadavia,42.29,-8.14;A Rúa,42.40,-7.11;Celanova,42.15,-7.96;Allariz,42.19,-7.80",
+      "Palencia":"Palencia,42.01,-4.53;Aguilar de Campoo,42.79,-4.26;Guardo,42.79,-4.84;Venta de Baños,41.92,-4.49;Villamuriel de Cerrato,41.99,-4.50;Cervera de Pisuerga,42.86,-4.50;Carrión de los Condes,42.34,-4.60;Saldaña,42.52,-4.74;Baltanás,41.94,-4.25;Paredes de Nava,42.15,-4.69",
+      "Pontevedra":"Vigo,42.24,-8.72;Pontevedra,42.43,-8.64;Vilagarcía de Arousa,42.60,-8.77;Redondela,42.28,-8.61;Marín,42.39,-8.70;Cangas,42.26,-8.78;Lalín,42.66,-8.11;Ponteareas,42.18,-8.54;Sanxenxo,42.40,-8.81;Tui,42.05,-8.65;Moaña,42.28,-8.74;O Porriño,42.16,-8.62",
+      "Salamanca":"Salamanca,40.97,-5.66;Santa Marta de Tormes,40.96,-5.62;Béjar,40.39,-5.76;Ciudad Rodrigo,40.60,-6.53;Villamayor,41.00,-5.68;Carbajosa de la Sagrada,40.93,-5.64;Peñaranda de Bracamonte,40.90,-5.20;Guijuelo,40.56,-5.67;Alba de Tormes,40.83,-5.52;Cabrerizos,40.99,-5.62",
+      "Santa Cruz de Tenerife":"Santa Cruz de Tenerife,28.46,-16.25;San Cristóbal de La Laguna,28.49,-16.31;Arona,28.10,-16.68;Adeje,28.12,-16.73;Santa Cruz de La Palma,28.68,-17.76;Los Llanos de Aridane,28.66,-17.92;Puerto de la Cruz,28.41,-16.55;Granadilla de Abona,28.12,-16.58;La Orotava,28.39,-16.52;Candelaria,28.35,-16.37;Los Realejos,28.37,-16.58;Icod de los Vinos,28.37,-16.72",
+      "Segovia":"Segovia,40.95,-4.12;Cuéllar,41.40,-4.31;El Espinar,40.72,-4.23;San Cristóbal de Segovia,40.93,-4.08;La Lastrilla,40.97,-4.10;Real Sitio de San Ildefonso,40.90,-4.00;Nava de la Asunción,41.17,-4.70;Riaza,41.26,-3.46;Cantalejo,41.25,-3.91",
+      "Sevilla":"Sevilla,37.39,-5.98;Dos Hermanas,37.28,-5.92;Alcalá de Guadaíra,37.34,-5.84;Utrera,37.18,-5.78;Mairena del Aljarafe,37.35,-6.06;Écija,37.54,-5.08;Los Palacios y Villafranca,37.16,-5.93;La Rinconada,37.49,-5.98;Coria del Río,37.29,-6.05;Carmona,37.47,-5.64;San Juan de Aznalfarache,37.36,-6.03;Lebrija,36.92,-6.07",
+      "Soria":"Soria,41.76,-2.46;Almazán,41.49,-2.53;El Burgo de Osma,41.59,-3.07;San Esteban de Gormaz,41.57,-3.22;Ágreda,41.85,-1.92;Covaleda,41.93,-2.89;Medinaceli,41.17,-2.43;Golmayo,41.77,-2.50;San Leonardo de Yagüe,41.82,-3.07;Duruelo de la Sierra,41.91,-2.98",
+      "Tarragona":"Tarragona,41.12,1.25;Reus,41.16,1.11;Vila-seca,41.11,1.14;Cambrils,41.07,1.06;El Vendrell,41.22,1.54;Salou,41.08,1.14;Tortosa,40.81,0.52;Valls,41.29,1.25;Amposta,40.71,0.58;Calafell,41.20,1.57;Cunit,41.20,1.63;Torredembarra,41.15,1.40",
+      "Teruel":"Teruel,40.34,-1.11;Alcañiz,41.05,-0.13;Andorra,40.98,-0.45;Calamocha,40.92,-1.30;Utrillas,40.81,-0.85;Montalbán,40.83,-0.80;Valderrobres,40.87,0.15;Albarracín,40.41,-1.44;Alcorisa,40.88,-0.38;Mora de Rubielos,40.25,-0.75",
+      "Toledo":"Toledo,39.86,-4.02;Talavera de la Reina,39.96,-4.83;Illescas,40.12,-3.84;Seseña,40.10,-3.69;Sonseca,39.68,-3.97;Torrijos,39.98,-4.28;Fuensalida,40.06,-4.23;Madridejos,39.47,-3.53;Consuegra,39.46,-3.60;Quintanar de la Orden,39.59,-3.05;Mora,39.69,-3.77;Ocaña,39.96,-3.50",
+      "Valencia":"Valencia,39.47,-0.38;Torrent,39.44,-0.47;Gandia,38.97,-0.18;Paterna,39.50,-0.44;Sagunto,39.68,-0.28;Alzira,39.15,-0.44;Mislata,39.48,-0.42;Burjassot,39.51,-0.41;Ontinyent,38.82,-0.61;Xàtiva,38.99,-0.52;Manises,39.49,-0.46;Aldaia,39.47,-0.46;Alboraya,39.50,-0.35;Sueca,39.20,-0.31",
+      "Valladolid":"Valladolid,41.65,-4.72;Laguna de Duero,41.58,-4.72;Medina del Campo,41.31,-4.91;Arroyo de la Encomienda,41.62,-4.80;Zaratán,41.65,-4.79;Tordesillas,41.50,-4.99;Íscar,41.37,-4.53;Tudela de Duero,41.59,-4.57;Simancas,41.59,-4.82;Peñafiel,41.60,-4.12;Cigales,41.75,-4.70;La Cistérniga,41.60,-4.65",
+      "Vizcaya":"Bilbao,43.26,-2.93;Barakaldo,43.30,-2.99;Getxo,43.36,-3.01;Portugalete,43.32,-3.02;Santurtzi,43.33,-3.03;Basauri,43.24,-2.89;Leioa,43.33,-2.98;Galdakao,43.23,-2.84;Sestao,43.31,-3.01;Durango,43.17,-2.63;Erandio,43.31,-2.97;Mungia,43.35,-2.85;Sopela,43.38,-2.98",
+      "Zamora":"Zamora,41.50,-5.75;Benavente,42.00,-5.68;Toro,41.52,-5.39;Morales del Vino,41.48,-5.72;Villaralbo,41.53,-5.80;Puebla de Sanabria,42.05,-6.63;Fuentesaúco,41.34,-5.50;Alcañices,41.69,-6.35;Villalpando,41.85,-5.40;Bermillo de Sayago,41.37,-6.12",
+      "Zaragoza":"Zaragoza,41.65,-0.89;Calatayud,41.35,-1.64;Utebo,41.71,-1.00;Ejea de los Caballeros,42.13,-1.14;Tarazona,41.90,-1.72;Caspe,41.23,-0.04;Cuarte de Huerva,41.61,-0.93;Alagón,41.77,-1.12;Zuera,41.87,-0.78;La Almunia de Doña Godina,41.48,-1.38;Borja,41.84,-1.53;Tauste,41.92,-1.25"
+    };
+    function parseMuni(s){ return s.split(';').map(function(x){ var a = x.split(','); return [a[0],+a[1],+a[2]]; }); }
+    var DEST = [['Madrid','Madrid'],['Barcelona','Barcelona'],['Valencia','Valencia'],['Sevilla','Sevilla'],['Bilbao','Vizcaya'],['Zaragoza','Zaragoza'],['Málaga','Málaga'],['Alicante','Alicante'],['A Coruña','A Coruña'],['Murcia','Murcia'],['Valladolid','Valladolid'],['Oviedo','Asturias']];
+    var BANDAS = [[100,300,200],[300,550,420],[550,850,700],[850,3000,1000]];
+    var TIPOS = ['estudio','piso12','piso3','casa'], LABELS = ['Estudio','Piso 1-2 hab','Piso 3+ hab','Casa / Chalet'];
+    var TRAMOS = [
+      ['Mudanza local (misma ciudad)','Menos de 30 km',0,29],
+      ['Provincias cercanas','30-100 km',30,100],
+      ['Mudanza regional','100-300 km',100,300],
+      ['Mudanza entre provincias','300-600 km',300,600],
+      ['Mudanza de larga distancia','Más de 600 km',600,1000]
+    ];
+    function byName(n){ for(var i=0;i<PROV.length;i++){ if(PROV[i][0]===n) return PROV[i]; } return null; }
+    function ciudadesDe(p){ var pr = byName(p); return MUNI[p] ? parseMuni(MUNI[p]) : [[p+' capital',pr[1],pr[2]]]; }
+    function f(tipo,km,extra){ var t=TARIFAS[tipo]; return t.base + Math.max(0,km-KM_LOCAL)*t.km + extra; }
+    function range(tipo,a,b,ea,eb){ return fmt(round10(f(tipo,a,ea)*0.88))+'-'+fmt(round10(f(tipo,b,eb)*1.18))+' €'; }
+    function row(dest,dist,a,b,ea,eb){
+      var tds = '<td data-label="Destino">'+dest+'</td><td data-label="Distancia aprox.">'+dist+'</td>';
+      TIPOS.forEach(function(t,i){ tds += '<td data-label="'+LABELS[i]+'">'+range(t,a,b,ea,eb)+'</td>'; });
+      return '<tr>'+tds+'</tr>';
+    }
+    function destinos(origen,provOrigen){
+      var zo = byName(provOrigen)[3];
+      var cand = [];
+      DEST.forEach(function(d){
+        if(d[1]===provOrigen) return;
+        var pr = byName(d[1]); if(!pr) return;
+        cand.push({n:d[0], km:Math.round(haversine(origen,pr)*FACTOR_RUTA), extra:(zo!==pr[3])?RECARGO_ISLAS:0});
+      });
+      var elegidos = [];
+      BANDAS.forEach(function(b){
+        var best = null;
+        cand.forEach(function(c){
+          if(elegidos.indexOf(c)>-1 || c.km<b[0] || c.km>b[1]) return;
+          if(!best || Math.abs(c.km-b[2])<Math.abs(best.km-b[2])) best = c;
+        });
+        if(best) elegidos.push(best);
+      });
+      cand.sort(function(a,b){ return a.km-b.km; });
+      cand.forEach(function(c){ if(elegidos.length<3 && elegidos.indexOf(c)<0) elegidos.push(c); });
+      return elegidos.sort(function(a,b){ return a.km-b.km; });
+    }
+    function fillCiudades(){
+      var p = selP.value;
+      selC.innerHTML = '';
+      var d = document.createElement('option'); d.value = '';
+      if(p==='all'){ d.textContent = 'Selecciona primero una provincia'; selC.appendChild(d); selC.disabled = true; return; }
+      d.textContent = 'Selecciona una ciudad / municipio'; selC.appendChild(d);
+      ciudadesDe(p).forEach(function(c,i){ var o = document.createElement('option'); o.value = i; o.textContent = c[0]; selC.appendChild(o); });
+      var ot = document.createElement('option'); ot.value = 'otro'; ot.textContent = 'Otro municipio / localidad'; selC.appendChild(ot);
+      selC.disabled = false;
+    }
+    function render(){
+      var p = selP.value, ci = selC.value, html = '';
+      if(p==='all' || ci===''){
+        TRAMOS.forEach(function(r){ html += row(r[0],r[1],r[2],r[3],0,0); });
+        cap.textContent = 'Precio mudanza aproximado en España por tramos de kilómetros';
+        nota.textContent = 'Estimación general por tramo de distancia (precio mínimo del inicio del tramo y máximo del final). ' + (p==='all' ? 'Elige provincia y ciudad de origen para ver destinos concretos.' : 'Elige ahora una ciudad o municipio para ver destinos concretos desde tu origen.');
+      } else {
+        var pr = byName(p), otro = (ci==='otro'), c = otro ? ['otro municipio de '+p, pr[1], pr[2]] : ciudadesDe(p)[+ci];
+        html += row('Trayecto local (misma ciudad y alrededores)','Menos de 30 km',0,0,0,0);
+        destinos(c,p).forEach(function(d){ html += row(d.n,'≈ '+fmt(d.km)+' km',d.km,d.km,d.extra,d.extra); });
+        cap.textContent = otro ? 'Precios aproximados de mudanza desde otro municipio de '+p : 'Precios aproximados de mudanza desde '+c[0]+' ('+p+')';
+        nota.textContent = (otro ? 'Estimación orientativa basada en la provincia de '+p+' (se toma su capital como punto de partida). ' : 'Destinos representativos de distancia corta, media y larga desde '+c[0]+'. ') + 'Para otra ruta, usa la calculadora de arriba.' + (pr[3]==='I' ? ' Incluye recargo de ferry hacia la península.' : '');
+      }
+      body.innerHTML = html;
+      [body,cap].forEach(function(el){ el.classList.remove('fade-in'); void el.offsetWidth; el.classList.add('fade-in'); });
+    }
+    var otras = document.createElement('optgroup'); otras.label = 'Otras provincias';
+    PROV.forEach(function(p){
+      if(FIJAS.indexOf(p[0])>-1) return;
+      var op = document.createElement('option'); op.value = p[0]; op.textContent = p[0]; otras.appendChild(op);
+    });
+    selP.appendChild(otras);
+    selP.addEventListener('change',function(){ fillCiudades(); render(); });
+    selC.addEventListener('change',render);
+    fillCiudades(); render();
+  })();
+})();
+</script>
+</body>
+</html>

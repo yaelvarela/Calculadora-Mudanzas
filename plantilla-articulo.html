@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--
+  PLANTILLA DE ARTÍCULO · CUADERNO DE RUTA
+  Cómo usarla:
+    1. Duplica este archivo y renómbralo con la URL del artículo (ej.: precio-mudanza-pequena.html).
+    2. Busca los comentarios "EDITA:" y sustituye los textos de ejemplo.
+    3. Guarda tus imágenes de Magnific AI en img/blog/ y cambia los 3 atributos src.
+    4. Añade la tarjeta del artículo AL PRINCIPIO de la lista de blog.html (id="post-list") y de la vista previa de
+       index.html (id="blog-preview-list"), con su data-date="AAAA-MM-DD". Los más recientes se muestran primero.
+  Requiere en la misma carpeta: styles.css, site.js, consent.js e img/blog/placeholder.svg
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- EDITA: título SEO (máx. ~60 caracteres) y meta descripción (máx. ~155 caracteres) -->
+<title>Título del artículo con la palabra clave | Cuaderno de Ruta</title>
+<meta name="description" content="Resumen del artículo en una o dos frases que invite a hacer clic y mencione la palabra clave principal.">
+<!-- EDITA: cuando tengas dominio, descomenta y pon la URL completa de esta página -->
+<!-- <link rel="canonical" href="https://www.tudominio.es/nombre-del-articulo.html"> -->
+
+<!-- Open Graph (vista previa al compartir en redes). EDITA: URL de la imagen principal -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Título del artículo con la palabra clave">
+<meta property="og:description" content="Resumen del artículo en una o dos frases.">
+<!-- <meta property="og:image" content="https://www.tudominio.es/img/blog/imagen-principal.jpg"> -->
+
+<!-- Datos estructurados para Google. EDITA: headline, description y datePublished (formato AAAA-MM-DDTHH:MM:00+02:00; +01:00 en invierno) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Título del artículo con la palabra clave",
+  "description": "Resumen del artículo en una o dos frases.",
+  "inLanguage": "es-ES",
+  "datePublished": "2026-10-21T14:30:00+02:00"
+}
+</script>
+
+<!-- Consentimiento de Google (debe ir antes de cualquier script de Google) -->
+<script src="consent.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- Tailwind (CDN de desarrollo). Preflight y container desactivados para no chocar con styles.css -->
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = {
+    corePlugins: { preflight: false, container: false },
+    future: { hoverOnlyWhenSupported: true },
+    theme: { extend: {
+      colors: { navy: '#0b2545', brand: '#1f6feb', soft: '#eaf2ff', accent: '#ff7a1a', muted: '#5b6b7d', line: '#dde5ef', ink: '#1c2a3a' },
+      boxShadow: { card: '0 8px 30px rgba(11,37,69,.10)' }
+    } }
+  };
+</script>
+</head>
+<body>
+
+<!-- ============ CABECERA FIJA (igual en todas las páginas) ============ -->
+<header class="site-header" id="top">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="CalculadoraMudanzas.es, ir al inicio"><span class="brand-ico" aria-hidden="true">🚚</span>CalculadoraMudanzas<span class="brand-tld">.es</span></a>
+    <nav class="nav" id="siteNav" aria-label="Navegación principal">
+      <a href="index.html#hero">Calculadora</a>
+      <a href="index.html#tabla-precios">Precios</a>
+      <a href="blog.html" aria-current="page">Cuaderno de Ruta</a>
+      <a href="index.html#sobre-mi">Sobre Mí</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="index.html#contacto">Pedir Presupuesto</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ CABECERA DEL ARTÍCULO: volver + categoría + H1 + metadatos ============ -->
+<section class="hero hero-sm" id="hero">
+  <div class="container">
+
+    <!-- Enlace superior de retorno -->
+    <a href="blog.html" class="mb-4 inline-flex items-center gap-1 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white no-underline transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">← Volver al Cuaderno de Ruta</a>
+
+    <!-- Metadatos visibles: categoría, fecha y tiempo de lectura. EDITA los tres valores. La fecha se escribe en datetime="AAAA-MM-DDTHH:MM" y se muestra como "21 de octubre de 2026 a las 14:30" -->
+    <div class="mb-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-white/90">
+      <span class="rounded-full bg-white/15 px-3 py-1 font-bold uppercase tracking-wide">Precios</span>
+      <span>📅 <time class="pub-date" datetime="2026-10-21T14:30">21 de octubre de 2026 a las 14:30</time></span>
+      <span>⏱ 5 min de lectura</span>
+    </div>
+
+    <!-- ÚNICO H1 de la página -->
+    <h1>Título llamativo del artículo con la palabra clave principal</h1>
+    <p>Entradilla de una o dos líneas que resume qué va a aprender el lector y por qué le interesa.</p>
+  </div>
+</section>
+
+<main class="container sub">
+  <div class="article-wrap">
+
+    <!-- IMAGEN 1 (principal / hero del artículo), justo debajo del título.
+         EDITA: src (tu imagen de Magnific AI, recomendado 1200 × 750 px) y alt (describe la imagen). -->
+    <figure class="m-0 mb-6" data-aos="fade-up">
+      <img src="img/blog/NOMBRE-IMAGEN-PRINCIPAL.jpg"
+           alt="Descripción de la imagen principal: qué se ve y cómo se relaciona con el tema del artículo"
+           width="1200" height="750" decoding="async"
+           class="aspect-[16/10] w-full rounded-2xl bg-soft object-cover shadow-card"
+           onerror="this.onerror=null;this.src='img/blog/placeholder.svg'">
+    </figure>
+
+    <!-- ============ CUERPO DEL ARTÍCULO ============ -->
+    <article class="rounded-2xl border border-line bg-white p-6 shadow-card sm:p-10">
+
+      <!-- INTRODUCCIÓN -->
+      <h2 class="mt-0 mb-3 text-2xl font-extrabold leading-snug text-navy">Introducción: por qué importa este tema</h2>
+      <p class="mb-4 leading-relaxed text-ink">Primer párrafo: plantea el problema del lector y menciona la palabra clave principal de forma natural. Mantén los párrafos cortos (3-4 líneas) para facilitar la lectura en móvil.</p>
+      <p class="mb-4 leading-relaxed text-ink">Segundo párrafo: adelanta lo que se va a explicar y por qué es útil. Si hablas de precios, recuerda que son cifras orientativas.</p>
+
+      <!-- ENLACE INTERNO A LA CALCULADORA (CRO). Destino: index.html#calculadora -->
+      <div class="my-6 rounded-xl border-l-4 border-brand bg-soft p-4 text-navy">
+        <p class="m-0 leading-relaxed">💡 ¿Quieres saber cuánto te costaría? Prueba nuestra
+          <a href="index.html#calculadora" class="font-bold text-brand underline underline-offset-2">calculadora de presupuesto de mudanza</a>
+          y obtén un rango de precio en menos de un minuto.</p>
+      </div>
+
+      <!-- H2: SECCIÓN PRINCIPAL 1 -->
+      <h2 class="mt-8 mb-3 text-2xl font-extrabold leading-snug text-navy">Cómo hacerlo, paso a paso</h2>
+
+      <!-- H3: subapartado -->
+      <h3 class="mt-5 mb-2 text-lg font-bold text-navy">Paso 1: título del primer subapartado</h3>
+      <p class="mb-4 leading-relaxed text-ink">Explica el primer paso con ejemplos concretos. Usa listas cuando enumeres elementos:</p>
+      <ul class="mb-4 list-disc space-y-1 pl-6 text-ink marker:text-brand">
+        <li><strong class="text-navy">Elemento uno:</strong> breve explicación.</li>
+        <li><strong class="text-navy">Elemento dos:</strong> breve explicación.</li>
+        <li><strong class="text-navy">Elemento tres:</strong> breve explicación.</li>
+      </ul>
+
+      <!-- IMAGEN 2 (apoyo, entre párrafos). EDITA: src y alt -->
+      <figure class="my-8" data-aos="fade-up">
+        <img src="img/blog/NOMBRE-IMAGEN-APOYO-1.jpg"
+             alt="Descripción de la primera imagen de apoyo: ilustra el paso 1 del artículo"
+             width="1200" height="750" loading="lazy" decoding="async"
+             class="aspect-[16/10] w-full rounded-2xl bg-soft object-cover"
+             onerror="this.onerror=null;this.src='img/blog/placeholder.svg'">
+        <figcaption class="mt-2 text-center text-sm text-muted">EDITA: pie de foto opcional (breve y descriptivo).</figcaption>
+      </figure>
+
+      <h3 class="mt-5 mb-2 text-lg font-bold text-navy">Paso 2: título del segundo subapartado</h3>
+      <p class="mb-4 leading-relaxed text-ink">Desarrolla el segundo paso. Si hay un cálculo, muéstralo con un ejemplo numérico sencillo para que el lector lo pueda replicar.</p>
+
+      <!-- ============ ANUNCIO ADSENSE · BLOQUE INTERMEDIO ============
+           Cuando AdSense apruebe el sitio, pega aquí el bloque <ins class="adsbygoogle"> de un anuncio en artículo (in-article). -->
+      <!-- ESPACIO ANUNCIO ADSENSE 1 (intermedio) -->
+      <div class="ad-slot" aria-hidden="true"></div>
+
+      <!-- H2: SECCIÓN PRINCIPAL 2 -->
+      <h2 class="mt-8 mb-3 text-2xl font-extrabold leading-snug text-navy">Ejemplos y casos prácticos</h2>
+      <h3 class="mt-5 mb-2 text-lg font-bold text-navy">Ejemplo A: vivienda pequeña</h3>
+      <p class="mb-4 leading-relaxed text-ink">Describe un caso real o realista con cifras orientativas.</p>
+      <h3 class="mt-5 mb-2 text-lg font-bold text-navy">Ejemplo B: trayecto entre provincias</h3>
+      <p class="mb-4 leading-relaxed text-ink">Describe un segundo caso para contrastar con el anterior.</p>
+
+      <!-- IMAGEN 3 (apoyo, entre párrafos). EDITA: src y alt -->
+      <figure class="my-8" data-aos="fade-up">
+        <img src="img/blog/NOMBRE-IMAGEN-APOYO-2.jpg"
+             alt="Descripción de la segunda imagen de apoyo: ilustra los ejemplos o el resultado final"
+             width="1200" height="750" loading="lazy" decoding="async"
+             class="aspect-[16/10] w-full rounded-2xl bg-soft object-cover"
+             onerror="this.onerror=null;this.src='img/blog/placeholder.svg'">
+        <figcaption class="mt-2 text-center text-sm text-muted">EDITA: pie de foto opcional.</figcaption>
+      </figure>
+
+      <!-- H2: SECCIÓN PRINCIPAL 3 -->
+      <h2 class="mt-8 mb-3 text-2xl font-extrabold leading-snug text-navy">Errores frecuentes que debes evitar</h2>
+      <ul class="mb-4 list-disc space-y-2 pl-6 text-ink marker:text-brand">
+        <li><strong class="text-navy">Error 1:</strong> qué ocurre y cómo evitarlo.</li>
+        <li><strong class="text-navy">Error 2:</strong> qué ocurre y cómo evitarlo.</li>
+        <li><strong class="text-navy">Error 3:</strong> qué ocurre y cómo evitarlo.</li>
+      </ul>
+
+      <!-- H2: CONCLUSIÓN + ENLACE A ARTÍCULO RELACIONADO -->
+      <h2 class="mt-8 mb-3 text-2xl font-extrabold leading-snug text-navy">Conclusión</h2>
+      <p class="mb-4 leading-relaxed text-ink">Resume las ideas clave en dos o tres frases. Para seguir profundizando, lee también
+        <!-- ENLACE INTERNO A OTRO ARTÍCULO. EDITA: href y texto -->
+        <a href="como-calcular-m3.html" class="font-bold text-brand underline underline-offset-2">¿Cómo calcular los metros cúbicos (m³) de tu mudanza?</a>,
+        donde explicamos cómo estimar el volumen de tu mudanza.</p>
+    </article>
+
+    <!-- ============ ANUNCIO ADSENSE · BLOQUE FINAL ============ -->
+    <!-- ESPACIO ANUNCIO ADSENSE 2 (final) -->
+    <div class="ad-slot" aria-hidden="true"></div>
+
+    <!-- ============ CTA FINAL: CALCULAR EL PRESUPUESTO ============ -->
+    <aside class="my-10 rounded-2xl bg-gradient-to-br from-navy to-[#13315c] px-6 py-10 text-center text-white shadow-card" data-aos="fade-up" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="mt-0 mb-2 text-2xl font-extrabold">¿Cuánto te costaría tu mudanza?</h2>
+      <p class="mx-auto mt-0 mb-6 max-w-xl text-white/90">Calcula en menos de un minuto el precio estimado según tu vivienda, la distancia y los servicios extra. Sin compromiso.</p>
+      <a href="index.html#calculadora"
+         class="inline-block rounded-2xl bg-accent px-8 py-4 text-lg font-extrabold text-white no-underline shadow-lg transition duration-200 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Calcular mi presupuesto →</a>
+    </aside>
+
+    <!-- ============ SIGUE LEYENDO (otros artículos) ============ -->
+    <section aria-labelledby="rel-title" class="mb-4">
+      <h2 id="rel-title" class="mt-0 mb-4 text-xl font-extrabold text-navy">Sigue leyendo</h2>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <!-- EDITA: href, categoría y título de cada artículo relacionado -->
+        <a href="precio-por-km.html" class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-5 no-underline shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-xl">
+          <span class="self-start rounded-full bg-soft px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand">Precios</span>
+          <strong class="text-navy">Factores que influyen en el precio por kilómetro en trayectos nacionales</strong>
+          <span class="font-bold text-brand">Leer artículo →</span>
+        </a>
+        <a href="ahorrar-y-embalar.html" class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-5 no-underline shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-xl">
+          <span class="self-start rounded-full bg-soft px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand">Ahorro</span>
+          <strong class="text-navy">Consejos para ahorrar dinero y empaquetar cajas eficientemente</strong>
+          <span class="font-bold text-brand">Leer artículo →</span>
+        </a>
+      </div>
+      <p class="mt-6 text-center"><a href="blog.html" class="font-bold text-brand no-underline hover:underline">← Volver al Cuaderno de Ruta</a></p>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ PIE DE PÁGINA (igual en todas las páginas) ============ -->
+<footer>
+  <p>© <span id="year"></span> Calculadora de Presupuesto de Mudanza · Las estimaciones son orientativas y no constituyen una oferta vinculante.</p>
+  <p><a href="aviso-legal.html#aviso">Aviso Legal</a> · <a href="aviso-legal.html#privacidad">Política de Privacidad</a> · <a href="aviso-legal.html#cookies">Política de Cookies</a> · <a href="#" id="cookieSettings">Configurar cookies</a> · <a href="blog.html">Cuaderno de Ruta</a> · <a href="index.html#sobre-mi">Sobre mí</a></p>
+</footer>
+
+<!-- ============ BANNER DE COOKIES (igual en todas las páginas) ============ -->
+<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <div class="cc-inner">
+    <p class="cc-text"><b>Usamos cookies.</b> Las técnicas son necesarias. Las de publicidad (Google AdSense) solo se activarán si las aceptas. Más información en nuestra <a href="aviso-legal.html#cookies">Política de Cookies</a>.</p>
+    <div class="cc-pref" id="ccPref" hidden>
+      <label class="cc-opt"><input type="checkbox" checked disabled> <span><b>Necesarias</b> · siempre activas</span></label>
+      <label class="cc-opt"><input type="checkbox" id="ccAds"> <span><b>Publicidad</b> · anuncios de Google (AdSense)</span></label>
+    </div>
+    <div class="cc-btns">
+      <button type="button" class="cc-btn" id="ccReject">Rechazar</button>
+      <button type="button" class="cc-btn" id="ccConfig">Configurar</button>
+      <button type="button" class="cc-btn cc-primary" id="ccAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
