@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /index-completo.html
+Disallow: /plantilla-articulo.html
+
+Sitemap: https://www.calculadoramudanzas.es/sitemap.xml

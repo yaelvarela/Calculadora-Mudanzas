@@ -351,3 +351,9 @@ main.sub{margin-top:-60px;position:relative}
 /* ====== FECHA DE PUBLICACIÓN ====== */
 .hero .pub-line{font-size:.92rem;opacity:.92;margin:-4px 0 14px}
 .post-date{font-size:.8rem;color:var(--muted);margin:0 0 8px !important}
+
+.legal-sec .table-wrap{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--border);border-radius:12px}
+.legal-sec table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+.legal-sec th,.legal-sec td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;color:var(--muted)}
+.legal-sec th{color:var(--navy);background:var(--blue-soft)}
+.legal-sec code{font-size:.85em}
