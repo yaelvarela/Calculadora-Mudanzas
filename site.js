@@ -1,5 +1,5 @@
 /* Funciones compartidas por todas las páginas: scroll inercial (Lenis), animaciones (AOS),
-   cabecera fija, banner de cookies (Consent Mode v2) y acordeones de FAQ. */
+   cabecera fija, ajustes de cookies (CMP de Google) y acordeones de FAQ. */
 (function(){
   'use strict';
   var $ = function(id){ return document.getElementById(id); };
@@ -92,35 +92,17 @@
     }
   })();
 
-  /* ---------- Cookies + Google Consent Mode v2 ---------- */
+  /* ---------- Configurar cookies: reabre el mensaje de consentimiento de Google (CMP) ---------- */
   (function(){
-    var cc = $('cc');
-    if(!cc) return;
-    var ADSENSE_ID = 'ca-pub-3215678200568191'; /* Solo se carga el script de anuncios si el usuario acepta la publicidad */
-    var CC_KEY = 'cookie_consent_v1', adsLoaded = false;
-    function ccGet(){ try{ return localStorage.getItem(CC_KEY); }catch(e){ return null; } }
-    function ccSet(v){ try{ localStorage.setItem(CC_KEY, v); }catch(e){} }
-    function applyConsent(ads){
-      var s = ads ? 'granted' : 'denied';
-      gtag('consent', 'update', {ad_storage:s, ad_user_data:s, ad_personalization:s, analytics_storage:'denied'});
-      if(ads && ADSENSE_ID && !adsLoaded){
-        adsLoaded = true;
-        var sc = document.createElement('script'); sc.async = true; sc.crossOrigin = 'anonymous';
-        sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_ID;
-        document.head.appendChild(sc);
-      }
-    }
-    function ccChoose(ads){ ccSet(ads ? 'granted' : 'denied'); applyConsent(ads); cc.hidden = true; }
-    function ccShow(){ $('ccAds').checked = ccGet() === 'granted'; $('ccPref').hidden = true; $('ccConfig').textContent = 'Configurar'; cc.hidden = false; }
-    $('ccAccept').addEventListener('click', function(){ ccChoose(true); });
-    $('ccReject').addEventListener('click', function(){ ccChoose(false); });
-    $('ccConfig').addEventListener('click', function(){
-      if($('ccPref').hidden){ $('ccPref').hidden = false; this.textContent = 'Guardar selección'; }
-      else { ccChoose($('ccAds').checked); }
+    var link = $('cookieSettings');
+    if(!link) return;
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      window.googlefc = window.googlefc || {};
+      googlefc.callbackQueue = googlefc.callbackQueue || [];
+      if(typeof googlefc.showRevocationMessage === 'function'){ googlefc.showRevocationMessage(); }
+      else { googlefc.callbackQueue.push({'CONSENT_API_READY': function(){ googlefc.showRevocationMessage(); }}); }
     });
-    if($('cookieSettings')) $('cookieSettings').addEventListener('click', function(e){ e.preventDefault(); ccShow(); });
-    var saved = ccGet();
-    if(saved === 'granted'){ applyConsent(true); } else if(saved === 'denied'){ applyConsent(false); } else { ccShow(); }
   })();
 
   /* ---------- Acordeón FAQ (accesible) ---------- */

@@ -59,14 +59,14 @@
         <div class="table-wrap"><table>
           <thead><tr><th>Nombre</th><th>Titular</th><th>Finalidad</th><th>Tipo</th><th>Duración</th></tr></thead>
           <tbody>
-            <tr><td><code>cookie_consent_v1</code> (almacenamiento local)</td><td>Este sitio</td><td>Recordar tu elección sobre cookies de publicidad</td><td>Técnica (necesaria)</td><td>Hasta que borres los datos del navegador</td></tr>
+            <tr><td>Cookies del gestor de consentimiento (por ejemplo <code>FCCDCF</code>, <code>FCNEC</code>, <code>euconsent-v2</code>)</td><td>Google</td><td>Recordar tu elección sobre las cookies de publicidad</td><td>Técnica (necesaria)</td><td>Según Google (hasta 13 meses)</td></tr>
             <tr><td>Cookies de publicidad de Google (por ejemplo <code>IDE</code>, <code>__gads</code>)</td><td>Google AdSense</td><td>Mostrar y medir anuncios</td><td>Publicitaria</td><td>Según Google (hasta 13 meses)</td></tr>
           </tbody>
         </table></div>
-        <p><b>Cookies de publicidad.</b> Se rechazan por defecto y solo se activarán si las aceptas en el banner. Hoy este sitio todavía no muestra anuncios; esta tabla se actualizará cuando se active Google AdSense. Puedes cambiar tu decisión en cualquier momento desde "Configurar cookies" en el pie de página.</p>
+        <p><b>Cookies de publicidad.</b> Al entrar en el sitio aparece el mensaje de consentimiento de Google, donde puedes consentir, no consentir o gestionar tus opciones. Hasta que decidas, el consentimiento para publicidad permanece denegado, y solo si lo aceptas se usarán cookies de publicidad. Puedes cambiar tu decisión en cualquier momento desde "Configurar cookies" en el pie de página.</p>
         <p><b>Cookies analíticas.</b> Este sitio no usa cookies analíticas.</p>
         <h3>3. Servicios de terceros que no usan cookies pero reciben tu IP</h3>
-        <p>Al cargar la página, tu navegador descarga recursos de Google Fonts (tipografías) y de jsDelivr (librerías de animación y desplazamiento), y el sitio se aloja en GitHub Pages. Estos servicios pueden recibir tu dirección IP y datos técnicos del navegador. También se envía información a Web3Forms cuando solicitas presupuesto. Consulta cómo Google usa los datos en <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+        <p>Al cargar la página, tu navegador descarga el script de Google AdSense y su mensaje de consentimiento, además de recursos de Google Fonts (tipografías) y de jsDelivr (librerías de animación y desplazamiento), y el sitio se aloja en GitHub Pages. Estos servicios pueden recibir tu dirección IP y datos técnicos del navegador. También se envía información a Web3Forms cuando solicitas presupuesto. Consulta cómo Google usa los datos en <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
         <h3>4. Cómo gestionar o eliminar cookies</h3>
         <p>Puedes aceptar, rechazar o borrar las cookies desde la configuración de tu navegador (Chrome, Firefox, Safari, Edge). Desactivar algunas cookies puede afectar a ciertas funciones.</p>
         <h3>5. Más información</h3>
@@ -79,22 +79,6 @@
   <p>© <span id="year"></span> Calculadora de Presupuesto de Mudanza · Las estimaciones son orientativas y no constituyen una oferta vinculante.</p>
   <p><a href="aviso-legal.html#aviso">Aviso Legal</a> · <a href="politica-privacidad.html">Política de Privacidad</a> · <a href="politica-cookies.html">Política de Cookies</a> · <a href="#" id="cookieSettings">Configurar cookies</a> · <a href="blog.html">Cuaderno de Ruta</a> · <a href="sobre-mi.html">Sobre mí</a> · <a href="contacto.html">Contacto</a></p>
 </footer>
-
-<!-- BANNER DE COOKIES -->
-<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
-  <div class="cc-inner">
-    <p class="cc-text"><b>Usamos cookies.</b> Las técnicas son necesarias. Las de publicidad (Google AdSense) solo se activarán si las aceptas. Más información en nuestra <a href="politica-cookies.html">Política de Cookies</a>.</p>
-    <div class="cc-pref" id="ccPref" hidden>
-      <label class="cc-opt"><input type="checkbox" checked disabled> <span><b>Necesarias</b> · siempre activas</span></label>
-      <label class="cc-opt"><input type="checkbox" id="ccAds"> <span><b>Publicidad</b> · anuncios de Google (AdSense)</span></label>
-    </div>
-    <div class="cc-btns">
-      <button type="button" class="cc-btn" id="ccReject">Rechazar</button>
-      <button type="button" class="cc-btn" id="ccConfig">Configurar</button>
-      <button type="button" class="cc-btn cc-primary" id="ccAccept">Aceptar todas</button>
-    </div>
-  </div>
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
