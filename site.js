@@ -96,7 +96,7 @@
   (function(){
     var cc = $('cc');
     if(!cc) return;
-    var ADSENSE_ID = ''; /* Pon aquí tu ID cuando te aprueben, ej. 'ca-pub-1234567890123456' */
+    var ADSENSE_ID = 'ca-pub-3215678200568191'; /* Solo se carga el script de anuncios si el usuario acepta la publicidad */
     var CC_KEY = 'cookie_consent_v1', adsLoaded = false;
     function ccGet(){ try{ return localStorage.getItem(CC_KEY); }catch(e){ return null; } }
     function ccSet(v){ try{ localStorage.setItem(CC_KEY, v); }catch(e){} }
