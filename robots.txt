@@ -3,4 +3,4 @@ Allow: /
 Disallow: /index-completo.html
 Disallow: /plantilla-articulo.html
 
-Sitemap: https://www.calculadoramudanzas.es/sitemap.xml
+Sitemap: https://calculadoramudanzas.es/sitemap.xml
