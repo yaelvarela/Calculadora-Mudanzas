@@ -2,17 +2,33 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calculadora de Presupuesto de Mudanza | Precios en España</title>
 <script>
-/* Google Consent Mode v2: todo denegado hasta que el usuario acepte. Debe cargarse en el <head>, antes de cualquier script de Google. */
+/* Google Consent Mode v2: todo denegado hasta que el usuario decida en el mensaje de consentimiento de Google. Debe cargarse en el <head>, antes de cualquier script de Google. */
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 gtag('consent', 'default', {ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', wait_for_update:500});
 gtag('set', 'ads_data_redaction', true);
+/* El script de AdSense carga el mensaje de consentimiento (CMP) de Google, que actualiza el Consent Mode según la elección del usuario */
+(function(){
+  var s = document.createElement('script');
+  s.async = true; s.crossOrigin = 'anonymous';
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3215678200568191';
+  document.head.appendChild(s);
+})();
 </script>
 <meta name="description" content="Calcula en 1 minuto el precio estimado de tu mudanza. Presupuestos para mudanzas pequeñas, por km y entre provincias en toda España.">
+<link rel="canonical" href="https://calculadoramudanzas.es/">
+<meta name="google-adsense-account" content="ca-pub-3215678200568191">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de Presupuesto de Mudanza | Precios en España">
+<meta property="og:description" content="Calcula en 1 minuto el precio estimado de tu mudanza. Presupuestos para mudanzas pequeñas, por km y entre provincias en toda España.">
+<meta property="og:url" content="https://calculadoramudanzas.es/">
+<meta property="og:site_name" content="CalculadoraMudanzas.es">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
@@ -109,7 +125,8 @@ body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;colo
 /* LAYOUT */
 main{margin-top:-70px;position:relative}
 .calc-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}
-@media(max-width:860px){.calc-grid{grid-template-columns:1fr}}
+@media(max-width:860px){.calc-grid{grid-template-columns:minmax(0,1fr)}}
+.calc-grid > *{min-width:0}
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;border:1px solid var(--border)}
 .card h2{font-size:1.3rem;color:var(--navy);margin-bottom:6px}
 .card .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
@@ -244,7 +261,8 @@ input.invalid,select.invalid{border-color:#dc2626}
   .nav.open{display:flex}
   .nav a{padding:12px 14px;font-size:1rem}
 }
-@media(max-width:420px){.brand{font-size:.95rem}.brand-ico{display:none}}
+@media(max-width:520px){.nav-inner{gap:8px}.nav-cta{padding:9px 12px;font-size:.85rem}.cta-long{display:none}.check{flex-wrap:wrap}.check b{flex-basis:100%;margin-left:32px;white-space:normal}}
+@media(max-width:420px){.brand{font-size:.9rem;min-width:0}.brand-ico,.brand-tld{display:none}}
 #hero,#tabla-precios,#guia-seo,#faq,#contacto,#sobre-nosotros,.lead h2{scroll-margin-top:84px}
 .hero{padding-top:44px}
 /* GUÍA */
@@ -435,6 +453,12 @@ main.sub{margin-top:-60px;position:relative}
 /* ====== FECHA DE PUBLICACIÓN ====== */
 .hero .pub-line{font-size:.92rem;opacity:.92;margin:-4px 0 14px}
 .post-date{font-size:.8rem;color:var(--muted);margin:0 0 8px !important}
+
+.legal-sec .table-wrap{overflow-x:auto;margin:12px 0 16px;border:1px solid var(--border);border-radius:12px}
+.legal-sec table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+.legal-sec th,.legal-sec td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;color:var(--muted)}
+.legal-sec th{color:var(--navy);background:var(--blue-soft)}
+.legal-sec code{font-size:.85em}
 </style>
 </head>
 <body>
@@ -692,7 +716,7 @@ main.sub{margin-top:-60px;position:relative}
         <div class="me-badge" aria-hidden="true">👋</div>
         <div class="me-body">
           <h2 id="me-title">Quién hay detrás de esta web</h2>
-          <p class="me-hello"><strong>Hola.</strong> Esta plataforma nace de la mano de un especialista independiente en el sector de las mudanzas en España, apasionado por la logística y el transporte nacional.</p>
+          <p class="me-hello"><strong>Hola.</strong> He trabajado varios años en una empresa familiar de transporte y mudanzas y de esa experiencia sale esta plataforma.</p>
           <p>Mi objetivo es ayudarte a estimar el precio real de tu traslado y conectarte con la mejor opción disponible en tu provincia, ofreciéndote una atención directa, personalizada y transparente.</p>
           <ul class="me-points">
             <li data-aos="fade-up" data-aos-delay="100"><span aria-hidden="true">✓</span><div><strong>Trato directo con una persona.</strong> Tu solicitud la revisa una persona, no un call-center.</div></li>
@@ -737,7 +761,7 @@ main.sub{margin-top:-60px;position:relative}
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
 /* Funciones compartidas por todas las páginas: scroll inercial (Lenis), animaciones (AOS),
-   cabecera fija, banner de cookies (Consent Mode v2) y acordeones de FAQ. */
+   cabecera fija, ajustes de cookies (CMP de Google) y acordeones de FAQ. */
 (function(){
   'use strict';
   var $ = function(id){ return document.getElementById(id); };
@@ -830,35 +854,17 @@ main.sub{margin-top:-60px;position:relative}
     }
   })();
 
-  /* ---------- Cookies + Google Consent Mode v2 ---------- */
+  /* ---------- Configurar cookies: reabre el mensaje de consentimiento de Google (CMP) ---------- */
   (function(){
-    var cc = $('cc');
-    if(!cc) return;
-    var ADSENSE_ID = ''; /* Pon aquí tu ID cuando te aprueben, ej. 'ca-pub-1234567890123456' */
-    var CC_KEY = 'cookie_consent_v1', adsLoaded = false;
-    function ccGet(){ try{ return localStorage.getItem(CC_KEY); }catch(e){ return null; } }
-    function ccSet(v){ try{ localStorage.setItem(CC_KEY, v); }catch(e){} }
-    function applyConsent(ads){
-      var s = ads ? 'granted' : 'denied';
-      gtag('consent', 'update', {ad_storage:s, ad_user_data:s, ad_personalization:s, analytics_storage:'denied'});
-      if(ads && ADSENSE_ID && !adsLoaded){
-        adsLoaded = true;
-        var sc = document.createElement('script'); sc.async = true; sc.crossOrigin = 'anonymous';
-        sc.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_ID;
-        document.head.appendChild(sc);
-      }
-    }
-    function ccChoose(ads){ ccSet(ads ? 'granted' : 'denied'); applyConsent(ads); cc.hidden = true; }
-    function ccShow(){ $('ccAds').checked = ccGet() === 'granted'; $('ccPref').hidden = true; $('ccConfig').textContent = 'Configurar'; cc.hidden = false; }
-    $('ccAccept').addEventListener('click', function(){ ccChoose(true); });
-    $('ccReject').addEventListener('click', function(){ ccChoose(false); });
-    $('ccConfig').addEventListener('click', function(){
-      if($('ccPref').hidden){ $('ccPref').hidden = false; this.textContent = 'Guardar selección'; }
-      else { ccChoose($('ccAds').checked); }
+    var link = $('cookieSettings');
+    if(!link) return;
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      window.googlefc = window.googlefc || {};
+      googlefc.callbackQueue = googlefc.callbackQueue || [];
+      if(typeof googlefc.showRevocationMessage === 'function'){ googlefc.showRevocationMessage(); }
+      else { googlefc.callbackQueue.push({'CONSENT_API_READY': function(){ googlefc.showRevocationMessage(); }}); }
     });
-    if($('cookieSettings')) $('cookieSettings').addEventListener('click', function(e){ e.preventDefault(); ccShow(); });
-    var saved = ccGet();
-    if(saved === 'granted'){ applyConsent(true); } else if(saved === 'denied'){ applyConsent(false); } else { ccShow(); }
   })();
 
   /* ---------- Acordeón FAQ (accesible) ---------- */
@@ -881,6 +887,9 @@ main.sub{margin-top:-60px;position:relative}
   });
 })();
 </script>
+<!-- Correo de confirmación (EmailJS) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script src="confirmacion.js"></script>
 <script>
 (function(){
   'use strict';
@@ -1012,6 +1021,12 @@ main.sub{margin-top:-60px;position:relative}
           var nombre = ($('nombre').value.trim().split(/\s+/)[0]) || '';
           var ruta = $('detalles').dataset.ruta;
           $('okText').textContent = '¡Gracias '+nombre+'! Hemos recibido tu solicitud. Nuestro equipo revisará la ruta '+ruta+' y te contactaremos por teléfono o WhatsApp en menos de 24 horas con el presupuesto final cerrado.';
+          /* Correo de confirmación al usuario (se activa en confirmacion.js; si no está configurado no hace nada) */
+          var emailUsuario = $('email').value.trim();
+          if(window.sendConfirmationEmail){
+            window.sendConfirmationEmail({email:emailUsuario, nombre:$('nombre').value, detalles:$('detalles').value, precio:$('precioEst').value, fecha:$('fecha').value})
+              .then(function(sent){ if(sent) $('okText').textContent += ' Te hemos enviado un correo de confirmación a '+emailUsuario+'.'; });
+          }
           form.hidden = true; $('okBox').hidden = false;
           var h2 = document.querySelector('.lead h2');
           if(window.__scrollToEl) window.__scrollToEl(h2); else h2.scrollIntoView({behavior:'smooth',block:'start'});

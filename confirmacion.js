@@ -41,7 +41,11 @@
       };
       try{
         emailjs.send(CONFIG.serviceId, CONFIG.templateId, params, {publicKey: CONFIG.publicKey})
-          .then(function(){ resolve(true); }, function(){ resolve(false); });
+          .then(function(){ resolve(true); }, function(err){
+            /* Aviso en la consola del navegador (F12) para poder diagnosticar: p. ej. "The recipients address is empty" */
+            if(window.console) console.warn('EmailJS no pudo enviar la confirmación:', (err && (err.text || err.message)) || err);
+            resolve(false);
+          });
       }catch(e){ resolve(false); }
     });
   };
