@@ -1,0 +1,67 @@
+name: Publicar artículo programado
+
+# Publica un artículo del blog al día a las 19:00 (hora de Madrid), del 23 al 29 de octubre de 2026.
+# Hay dos disparos porque el 25/10 cambia la hora: 17:05 UTC = 19:05 en horario de verano
+# y 18:05 UTC = 19:05 en horario de invierno. El script solo publica cuando ya ha llegado
+# la hora de la cola, así que el otro disparo no hace nada.
+# La cola (páginas + queue.json + publicar.py) vive en la rama "programados", que la web no sirve.
+on:
+  schedule:
+    - cron: '5 17 23-29 10 *'
+    - cron: '5 18 23-29 10 *'
+  workflow_dispatch:
+    inputs:
+      forzar:
+        description: 'Publicar ya el siguiente pendiente, ignorando la hora'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publicar-programado
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Código del sitio (main)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cola de artículos (rama programados)
+        uses: actions/checkout@v4
+        with:
+          ref: programados
+          path: .programados
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Identidad de git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Publicar el siguiente artículo
+        id: pub
+        run: |
+          ARGS=""
+          if [ "${{ inputs.forzar }}" = "true" ]; then ARGS="--force"; fi
+          python .programados/publicar.py $ARGS | tee salida.txt
+          if grep -q '^Publicado:' salida.txt; then echo "publicado=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Pedir reconstrucción de GitHub Pages
+        if: steps.pub.outputs.publicado == 'true'
+        continue-on-error: true
+        run: |
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds"
