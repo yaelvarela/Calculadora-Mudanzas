@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /index-completo.html
 Disallow: /plantilla-articulo.html
+Disallow: /email/
 
 Sitemap: https://calculadoramudanzas.es/sitemap.xml

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Hemos recibido tu solicitud de presupuesto</title>
+<!--
+  CORREO DE CONFIRMACIÓN · Calculadora de Mudanzas
+  Plantilla para EmailJS (pega todo este HTML en el editor de código de la plantilla).
+  Variables (se rellenan solas desde confirmacion.js):
+    {{nombre}} {{ruta}} {{vivienda}} {{extras}} {{precio_estimado}} {{fecha_mudanza}} {{site_url}} {{year}}
+  En EmailJS, el campo "To email" de la plantilla debe ser {{to_email}}.
+  Diseño con tablas y estilos en línea: es lo que mejor soportan Gmail, Outlook y Apple Mail.
+-->
+</head>
+<body style="margin:0;padding:0;background-color:#eef3fa;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+
+<!-- Texto de vista previa en la bandeja de entrada (oculto en el cuerpo) -->
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">
+  {{nombre}}, hemos recibido tu solicitud y la revisaremos en menos de 24 horas laborables. Mientras tanto, suscríbete a nuestra newsletter.
+  &#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#eef3fa" style="background-color:#eef3fa;">
+  <tr>
+    <td align="center" style="padding:24px 12px;">
+
+      <!-- Contenedor 600 px -->
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">
+
+        <!-- ===== CABECERA ===== -->
+        <tr>
+          <td align="center" bgcolor="#0b2545" style="background-color:#0b2545;background-image:linear-gradient(135deg,#0b2545 0%,#13315c 60%,#1d4f91 100%);border-radius:18px 18px 0 0;padding:28px 24px 22px 24px;">
+            <a href="{{site_url}}" target="_blank" style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.2px;color:#ffffff;">
+              &#128666;&nbsp;CalculadoraMudanzas<span style="color:#7db2ff;">.es</span>
+            </a>
+          </td>
+        </tr>
+
+        <!-- ===== ESTADO: SOLICITUD RECIBIDA ===== -->
+        <tr>
+          <td align="center" bgcolor="#0b2545" style="background-color:#0b2545;background-image:linear-gradient(135deg,#0b2545 0%,#13315c 60%,#1d4f91 100%);padding:0 24px 34px 24px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+              <tr>
+                <td align="center" width="64" height="64" bgcolor="#16a34a" style="width:64px;height:64px;border-radius:32px;background-color:#16a34a;font-family:Arial,Helvetica,sans-serif;font-size:32px;line-height:64px;font-weight:800;color:#ffffff;text-align:center;">&#10003;</td>
+              </tr>
+            </table>
+            <h1 style="margin:18px 0 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:32px;font-weight:800;color:#ffffff;">¡Hemos recibido tu solicitud!</h1>
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#c9d8f0;">Un especialista de zona ya tiene tus datos.</p>
+          </td>
+        </tr>
+
+        <!-- ===== CUERPO ===== -->
+        <tr>
+          <td bgcolor="#ffffff" style="background-color:#ffffff;padding:32px 32px 8px 32px;font-family:Arial,Helvetica,sans-serif;">
+
+            <p style="margin:0 0 14px 0;font-size:17px;line-height:26px;color:#1c2a3a;"><strong>Hola {{nombre}},</strong></p>
+            <p style="margin:0 0 24px 0;font-size:15px;line-height:24px;color:#4a5b6e;">
+              Gracias por confiar en nosotros. Hemos recibido tu solicitud de presupuesto y la revisaremos para
+              <strong style="color:#0b2545;">confirmar la disponibilidad de agenda</strong> en tu fecha y enviarte tu
+              <strong style="color:#0b2545;">precio final cerrado</strong>.
+            </p>
+
+            <!-- Resumen -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #dde5ef;border-radius:14px;background-color:#f6f9fe;">
+              <tr>
+                <td style="padding:18px 20px 6px 20px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1f6feb;">Resumen de tu solicitud</td>
+              </tr>
+              <tr>
+                <td style="padding:0 20px 8px 20px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;">
+                    <tr>
+                      <td width="38%" valign="top" style="padding:9px 0;border-bottom:1px solid #e3eaf5;color:#6b7b8e;">Ruta</td>
+                      <td valign="top" style="padding:9px 0;border-bottom:1px solid #e3eaf5;color:#0b2545;font-weight:700;">{{ruta}}</td>
+                    </tr>
+                    <tr>
+                      <td valign="top" style="padding:9px 0;border-bottom:1px solid #e3eaf5;color:#6b7b8e;">Vivienda</td>
+                      <td valign="top" style="padding:9px 0;border-bottom:1px solid #e3eaf5;color:#0b2545;font-weight:700;">{{vivienda}}</td>
+                    </tr>
+                    <tr>
+                      <td valign="top" style="padding:9px 0;border-bottom:1px solid #e3eaf5;color:#6b7b8e;">Servicios extra</td>
+                      <td valign="top" style="padding:9px 0;border-bottom:1px solid #e3eaf5;color:#0b2545;font-weight:700;">{{extras}}</td>
+                    </tr>
+                    <tr>
+                      <td valign="top" style="padding:9px 0;color:#6b7b8e;">Fecha aproximada</td>
+                      <td valign="top" style="padding:9px 0;color:#0b2545;font-weight:700;">{{fecha_mudanza}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:6px 20px 20px 20px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td align="center" bgcolor="#0b2545" style="background-color:#0b2545;background-image:linear-gradient(135deg,#0b2545,#13315c);border-radius:12px;padding:16px 12px;">
+                        <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#9db4d6;">Estimación orientativa</div>
+                        <div style="font-family:Arial,Helvetica,sans-serif;font-size:28px;line-height:36px;font-weight:800;color:#ffffff;">{{precio_estimado}}</div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Qué pasa ahora -->
+            <h2 style="margin:30px 0 14px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:800;color:#0b2545;">¿Qué pasa ahora?</h2>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;">
+              <tr>
+                <td width="40" valign="top" style="padding:0 0 14px 0;"><div style="width:30px;height:30px;border-radius:15px;background-color:#1f6feb;color:#ffffff;font-size:14px;font-weight:800;line-height:30px;text-align:center;">1</div></td>
+                <td valign="top" style="padding:3px 0 14px 0;font-size:14px;line-height:22px;color:#4a5b6e;"><strong style="color:#0b2545;">Revisamos tu ruta</strong> y comprobamos la disponibilidad de agenda para tu fecha.</td>
+              </tr>
+              <tr>
+                <td width="40" valign="top" style="padding:0 0 14px 0;"><div style="width:30px;height:30px;border-radius:15px;background-color:#1f6feb;color:#ffffff;font-size:14px;font-weight:800;line-height:30px;text-align:center;">2</div></td>
+                <td valign="top" style="padding:3px 0 14px 0;font-size:14px;line-height:22px;color:#4a5b6e;"><strong style="color:#0b2545;">Te contactamos</strong> por teléfono o WhatsApp en un plazo máximo de <strong>24 horas laborables</strong>.</td>
+              </tr>
+              <tr>
+                <td width="40" valign="top" style="padding:0 0 4px 0;"><div style="width:30px;height:30px;border-radius:15px;background-color:#1f6feb;color:#ffffff;font-size:14px;font-weight:800;line-height:30px;text-align:center;">3</div></td>
+                <td valign="top" style="padding:3px 0 4px 0;font-size:14px;line-height:22px;color:#4a5b6e;"><strong style="color:#0b2545;">Recibes tu precio cerrado</strong>, sin compromiso. Tú decides si lo aceptas.</td>
+              </tr>
+            </table>
+
+            <!-- Aviso -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;">
+              <tr>
+                <td style="border-left:4px solid #ff7a1a;background-color:#fff6ee;border-radius:8px;padding:12px 14px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#7a4a17;">
+                  La cifra de arriba es <strong>orientativa</strong> y no constituye una oferta vinculante: el precio final depende del inventario, la planta, los accesos y la fecha.
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ===== NEWSLETTER ===== -->
+        <tr>
+          <td bgcolor="#ffffff" style="background-color:#ffffff;padding:24px 32px 32px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#eaf2ff" style="background-color:#eaf2ff;border:1px solid #cfe0fb;border-radius:16px;">
+              <tr>
+                <td align="center" style="padding:26px 24px 8px 24px;font-family:Arial,Helvetica,sans-serif;">
+                  <div style="font-size:30px;line-height:36px;">&#128236;</div>
+                  <h2 style="margin:8px 0 6px 0;font-size:20px;line-height:26px;font-weight:800;color:#0b2545;">Suscríbete a nuestra Newsletter</h2>
+                  <p style="margin:0;font-size:14px;line-height:22px;color:#4a5b6e;">Recibe en tu correo lo que de verdad te ayuda a preparar tu mudanza:</p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:4px 24px 4px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#1c2a3a;text-align:left;">
+                    <tr><td style="padding:3px 0;"><span style="color:#16a34a;font-weight:800;">&#10003;</span>&nbsp; Consejos para ahorrar en tu mudanza</td></tr>
+                    <tr><td style="padding:3px 0;"><span style="color:#16a34a;font-weight:800;">&#10003;</span>&nbsp; Guías nuevas del Cuaderno de Ruta</td></tr>
+                    <tr><td style="padding:3px 0;"><span style="color:#16a34a;font-weight:800;">&#10003;</span>&nbsp; Checklists y trucos para organizar tu mudanza</td></tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:18px 24px 8px 24px;">
+                  <!-- Botón a prueba de Outlook -->
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="{{site_url}}/?newsletter=1" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="25%" stroke="f" fillcolor="#ff7a1a">
+                    <w:anchorlock/>
+                    <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">Quiero suscribirme</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--[if !mso]><!-- -->
+                  <a href="{{site_url}}/?newsletter=1" target="_blank" style="display:inline-block;background-color:#ff7a1a;border-radius:12px;padding:14px 32px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:800;color:#ffffff;text-decoration:none;">Quiero suscribirme</a>
+                  <!--<![endif]-->
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:6px 24px 24px 24px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#6b7b8e;">
+                  Sin spam. No te suscribimos automáticamente: lo haces tú, con un clic, y te das de baja cuando quieras.
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:22px 0 0 0;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#4a5b6e;">
+              Mientras esperas, echa un vistazo a nuestro
+              <a href="{{site_url}}/blog.html" target="_blank" style="color:#1f6feb;font-weight:700;text-decoration:underline;">Cuaderno de Ruta</a>
+              con guías para tu mudanza.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ===== PIE ===== -->
+        <tr>
+          <td align="center" bgcolor="#0b2545" style="background-color:#0b2545;border-radius:0 0 18px 18px;padding:24px 28px 26px 28px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#9db4d6;">
+            <p style="margin:0 0 8px 0;">
+              Has recibido este correo porque solicitaste un presupuesto en
+              <a href="{{site_url}}" target="_blank" style="color:#ffffff;text-decoration:underline;">{{site_url}}</a>.
+              Es un mensaje de servicio sobre tu solicitud.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Responsable del tratamiento: Yael Varela Prado · Portugalete, Bizkaia · yaelvarelaprado@gmail.com.
+              Puedes ejercer tus derechos escribiendo a esa dirección.
+            </p>
+            <p style="margin:0;">
+              <a href="{{site_url}}/aviso-legal.html" target="_blank" style="color:#ffffff;text-decoration:underline;">Aviso legal</a>
+              &nbsp;·&nbsp;
+              <a href="{{site_url}}/politica-privacidad.html" target="_blank" style="color:#ffffff;text-decoration:underline;">Política de privacidad</a>
+              &nbsp;·&nbsp;
+              <a href="{{site_url}}/politica-cookies.html" target="_blank" style="color:#ffffff;text-decoration:underline;">Cookies</a>
+            </p>
+            <p style="margin:12px 0 0 0;color:#6f8bb3;">&copy; {{year}} CalculadoraMudanzas.es</p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

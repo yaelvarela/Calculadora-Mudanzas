@@ -375,6 +375,32 @@
       <div class="panel"><p>Entre semana, a mitad de mes y fuera de la temporada alta (junio-septiembre) hay más disponibilidad y precios más bajos. Los fines de semana y los últimos días de mes son más caros porque coinciden con los fines de alquiler.</p></div></div></div>
   </section>
 
+  <!-- NEWSLETTER (bloque fijo; el mismo formulario que la ventana emergente) -->
+  <section class="nl-strip" id="newsletter" aria-labelledby="nl-strip-title" data-aos="fade-up">
+    <div>
+      <h2 id="nl-strip-title">Suscríbete a nuestra Newsletter</h2>
+      <p>Consejos para ahorrar en tu mudanza, guías nuevas del Cuaderno de Ruta y trucos para organizar tu mudanza. Sin spam, y te das de baja cuando quieras.</p>
+    </div>
+    <div data-nl-box>
+      <form data-nl-form action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="5d61d11c-9162-49e9-a4dd-28e09fdb12b6">
+        <input type="hidden" name="subject" value="Nueva suscripción a la newsletter">
+        <input type="hidden" name="from_name" value="Newsletter · Calculadora de Mudanzas">
+        <input type="hidden" name="origen_suscripcion" value="Bloque de la portada">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <label class="sr-only" for="nlEmail2">Correo electrónico</label>
+        <div class="nl-row">
+          <input type="email" id="nlEmail2" name="email" autocomplete="email" required placeholder="tu@email.com">
+          <button type="submit" class="btn">Suscribirme</button>
+        </div>
+        <label class="legal nl-legal"><input type="checkbox" name="acepta_newsletter" required>
+          <span>Acepto recibir la newsletter y la <a href="politica-privacidad.html#newsletter" target="_blank" rel="noopener">Política de Privacidad</a>. Puedo darme de baja cuando quiera.</span></label>
+        <div class="msg" data-nl-msg role="status"></div>
+      </form>
+      <div class="nl-ok" data-nl-ok hidden>🎉 ¡Gracias por suscribirte! Te hemos apuntado a la lista y recibirás nuestras novedades en tu correo.</div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -382,9 +408,51 @@
   <p><a href="aviso-legal.html#aviso">Aviso Legal</a> · <a href="politica-privacidad.html">Política de Privacidad</a> · <a href="politica-cookies.html">Política de Cookies</a> · <a href="#" id="cookieSettings">Configurar cookies</a> · <a href="blog.html">Cuaderno de Ruta</a> · <a href="sobre-mi.html">Sobre mí</a> · <a href="contacto.html">Contacto</a></p>
 </footer>
 
+<!-- VENTANA EMERGENTE DE NEWSLETTER (se abre a los pocos segundos de entrar; ver newsletter.js) -->
+<div class="nl-overlay" id="nlPop" hidden>
+  <div class="nl-box" role="dialog" aria-modal="true" aria-labelledby="nlTitle" tabindex="-1">
+    <button class="nl-close" id="nlClose" type="button" aria-label="Cerrar">×</button>
+    <div class="nl-side" aria-hidden="true">
+      <div class="nl-ico">📬</div>
+      <strong>Lo mejor del Cuaderno de Ruta, en tu correo</strong>
+      <ul>
+        <li><span>✓</span>Consejos para ahorrar en tu mudanza</li>
+        <li><span>✓</span>Guías nuevas, antes que nadie</li>
+        <li><span>✓</span>Checklists y trucos para organizar tu mudanza</li>
+      </ul>
+    </div>
+    <div class="nl-main" data-nl-box>
+      <span class="nl-kicker">Newsletter</span>
+      <h2 id="nlTitle">Suscríbete a nuestra Newsletter</h2>
+      <p class="nl-sub">Recibe consejos para ahorrar en tu mudanza y las guías nuevas del Cuaderno de Ruta. Sin spam.</p>
+      <form data-nl-form action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="5d61d11c-9162-49e9-a4dd-28e09fdb12b6">
+        <input type="hidden" name="subject" value="Nueva suscripción a la newsletter">
+        <input type="hidden" name="from_name" value="Newsletter · Calculadora de Mudanzas">
+        <input type="hidden" name="origen_suscripcion" value="Ventana emergente">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+        <label class="sr-only" for="nlEmail">Correo electrónico</label>
+        <div class="nl-row">
+          <input type="email" id="nlEmail" name="email" autocomplete="email" required placeholder="tu@email.com">
+          <button type="submit" class="btn">Suscribirme</button>
+        </div>
+        <label class="legal nl-legal"><input type="checkbox" name="acepta_newsletter" required>
+          <span>Acepto recibir la newsletter y la <a href="politica-privacidad.html#newsletter" target="_blank" rel="noopener">Política de Privacidad</a>. Puedo darme de baja cuando quiera.</span></label>
+        <div class="msg" data-nl-msg role="status"></div>
+      </form>
+      <div class="nl-ok" data-nl-ok hidden>🎉 ¡Gracias por suscribirte! Te hemos apuntado a la lista y recibirás nuestras novedades en tu correo.</div>
+      <button type="button" class="nl-later" id="nlLater" data-nl-later>Ahora no, gracias</button>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="site.js"></script>
+<!-- Correo de confirmación (EmailJS) y newsletter -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script src="confirmacion.js"></script>
+<script src="newsletter.js"></script>
 <script>
 (function(){
   'use strict';
@@ -516,6 +584,12 @@
           var nombre = ($('nombre').value.trim().split(/\s+/)[0]) || '';
           var ruta = $('detalles').dataset.ruta;
           $('okText').textContent = '¡Gracias '+nombre+'! Hemos recibido tu solicitud. Nuestro equipo revisará la ruta '+ruta+' y te contactaremos por teléfono o WhatsApp en menos de 24 horas con el presupuesto final cerrado.';
+          /* Correo de confirmación al usuario (se activa en confirmacion.js; si no está configurado no hace nada) */
+          var emailUsuario = $('email').value.trim();
+          if(window.sendConfirmationEmail){
+            window.sendConfirmationEmail({email:emailUsuario, nombre:$('nombre').value, detalles:$('detalles').value, precio:$('precioEst').value, fecha:$('fecha').value})
+              .then(function(sent){ if(sent) $('okText').textContent += ' Te hemos enviado un correo de confirmación a '+emailUsuario+'.'; });
+          }
           form.hidden = true; $('okBox').hidden = false;
           var h2 = document.querySelector('.lead h2');
           if(window.__scrollToEl) window.__scrollToEl(h2); else h2.scrollIntoView({behavior:'smooth',block:'start'});
