@@ -95,10 +95,29 @@
     }
   });
 
+  /* Mientras el mensaje de consentimiento de Google (CMP) esté en pantalla no se abre la ventana: iría detrás de él
+     y el usuario no la vería. Se espera a que desaparezca (máx. 2 min) y se abre unos instantes después. */
+  function cmpVisible(){
+    var el = document.querySelector('.fc-consent-root, .fc-dialog-container, .fc-choice-dialog');
+    /* getClientRects: offsetParent es null en elementos con position:fixed, como el de Google */
+    return !!(el && el.getClientRects().length > 0 && getComputedStyle(el).visibility !== 'hidden');
+  }
+  function showWhenFree(){
+    var tries = 0;
+    (function check(){
+      if(document.hidden){
+        document.addEventListener('visibilitychange', function once(){ if(!document.hidden){ document.removeEventListener('visibilitychange', once); check(); } });
+        return;
+      }
+      if(cmpVisible() && tries++ < 240){ setTimeout(check, 500); return; }
+      setTimeout(openPop, tries ? 1500 : 0);
+    })();
+  }
+
   /* Enlace del correo de confirmación (?newsletter=1): se abre siempre, aunque se hubiera cerrado antes */
   var forced = /[?&]newsletter=1(&|$)/.test(location.search) && get() !== 'subscribed';
-  if(forced){ timer = setTimeout(openPop, 600); return; }
+  if(forced){ timer = setTimeout(showWhenFree, 600); return; }
   if(dismissed()) return;
-  /* Con "reducir movimiento" o en un momento de poca atención no se interrumpe de golpe: pequeña espera tras entrar */
-  timer = setTimeout(function(){ if(!document.hidden) openPop(); else document.addEventListener('visibilitychange', function once(){ if(!document.hidden){ document.removeEventListener('visibilitychange', once); openPop(); } }); }, DELAY_MS);
+  /* Entrada normal: pequeña espera tras cargar la página */
+  timer = setTimeout(showWhenFree, DELAY_MS);
 })();

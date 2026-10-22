@@ -11,7 +11,7 @@
 | `email/plantilla-confirmacion.html` | HTML del correo, con variables `{{nombre}}`, `{{ruta}}`... Es lo que se pega en EmailJS |
 | `email/vista-previa-confirmacion.html` | El mismo correo con datos de ejemplo, para verlo en el navegador |
 | `confirmacion.js` | Envía el correo (EmailJS). Aquí se pegan los 3 identificadores |
-| `newsletter.js` | Ventana emergente y formularios de suscripción |
+| `suscripcion.js` | Ventana emergente y formularios de suscripción |
 
 ## Activar el correo de confirmación (gratis, EmailJS)
 Mientras no lo actives, la web funciona igual que antes: el formulario te llega por Web3Forms y el usuario ve el mensaje de gracias en pantalla.
@@ -37,4 +37,4 @@ Recomendado: en el panel de EmailJS limita los dominios permitidos a `calculador
 - La newsletter no se activa nunca sola: el usuario debe marcar la casilla. No se le suscribe por pedir presupuesto.
 
 ## Cambiar tiempos
-En `newsletter.js`: `DELAY_MS` (espera antes de abrir la ventana) y `HIDE_DAYS` (días sin volver a mostrarla tras cerrarla).
+En `suscripcion.js`: `DELAY_MS` (espera antes de abrir la ventana) y `HIDE_DAYS` (días sin volver a mostrarla tras cerrarla).

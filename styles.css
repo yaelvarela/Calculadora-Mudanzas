@@ -25,7 +25,8 @@ body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;colo
 /* LAYOUT */
 main{margin-top:-70px;position:relative}
 .calc-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}
-@media(max-width:860px){.calc-grid{grid-template-columns:1fr}}
+@media(max-width:860px){.calc-grid{grid-template-columns:minmax(0,1fr)}}
+.calc-grid > *{min-width:0}
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;border:1px solid var(--border)}
 .card h2{font-size:1.3rem;color:var(--navy);margin-bottom:6px}
 .card .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
@@ -160,7 +161,8 @@ input.invalid,select.invalid{border-color:#dc2626}
   .nav.open{display:flex}
   .nav a{padding:12px 14px;font-size:1rem}
 }
-@media(max-width:420px){.brand{font-size:.95rem}.brand-ico{display:none}}
+@media(max-width:520px){.nav-inner{gap:8px}.nav-cta{padding:9px 12px;font-size:.85rem}.cta-long{display:none}.check{flex-wrap:wrap}.check b{flex-basis:100%;margin-left:32px;white-space:normal}}
+@media(max-width:420px){.brand{font-size:.9rem;min-width:0}.brand-ico,.brand-tld{display:none}}
 #hero,#tabla-precios,#guia-seo,#faq,#contacto,#sobre-nosotros,.lead h2{scroll-margin-top:84px}
 .hero{padding-top:44px}
 /* GUÍA */
