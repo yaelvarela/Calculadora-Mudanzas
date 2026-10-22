@@ -1,0 +1,72 @@
+[
+ {
+  "slug": "mudanza-sin-ascensor",
+  "when": "2026-10-23T19:00",
+  "tag": "Guías",
+  "mins": 6,
+  "title": "Cuarta planta, sin ascensor y un armario de dos metros: así se complica (y se arregla) una mudanza",
+  "summary": "Por qué los accesos complican tanto una mudanza, cuándo hace falta un elevador y qué contarle a quien te ayuda con ella.",
+  "alt": "Dos personas bajando un armario desmontado por una escalera estrecha de un edificio sin ascensor",
+  "published": false
+ },
+ {
+  "slug": "guardamuebles-mudanza",
+  "when": "2026-10-24T19:00",
+  "tag": "Guías",
+  "mins": 5,
+  "title": "Tus muebles en un limbo de tres semanas: cuándo sirve el guardamuebles (y cuándo es dinero tirado)",
+  "summary": "Cuándo tiene sentido guardar tus muebles entre dos casas, guardamuebles o trastero, qué preguntar y cómo prepararlos.",
+  "alt": "Muebles cubiertos con mantas y fundas en un almacén ordenado, con cajas etiquetadas apiladas junto a la pared",
+  "published": false
+ },
+ {
+  "slug": "embalaje-mudanza-profesional",
+  "when": "2026-10-25T19:00",
+  "tag": "Ahorro",
+  "mins": 6,
+  "title": "¿Embalas tú o lo embalan por ti? Lo que de verdad cambia (además del dinero)",
+  "summary": "Cuándo compensa que embalen por ti y cuándo hacerlo tú, qué suma el embalaje en nuestra calculadora y qué guardar siempre aparte.",
+  "alt": "Manos envolviendo con papel un juego de vasos y colocándolos en una caja de cartón con separadores",
+  "published": false
+ },
+ {
+  "slug": "comparar-presupuestos-mudanza",
+  "when": "2026-10-26T19:00",
+  "tag": "Guías",
+  "mins": 6,
+  "title": "Tres presupuestos, tres precios distintos: cómo compararlos sin volverte loco",
+  "summary": "Por qué tres presupuestos de mudanza no se parecen, qué preguntar para compararlos de verdad y cuál es la diferencia entre estimación y cerrado.",
+  "alt": "Tres folios de presupuesto sobre una mesa con un bolígrafo y una calculadora, y unas cajas de cartón al fondo",
+  "published": false
+ },
+ {
+  "slug": "mudanza-piano-muebles-grandes",
+  "when": "2026-10-27T19:00",
+  "tag": "Guías",
+  "mins": 5,
+  "title": "El piano, el armario de tres cuerpos y otros inquilinos que mandan más que tú",
+  "summary": "Cómo planificar la mudanza de un piano, un armario grande o un sofá esquinero y qué contar para que no decidan por ti el día D.",
+  "alt": "Armario grande desmontado en paneles apoyado en una pared junto a un sofá esquinero y una funda protectora de manta",
+  "published": false
+ },
+ {
+  "slug": "mudanza-de-oficina",
+  "when": "2026-10-28T19:00",
+  "tag": "Guías",
+  "mins": 6,
+  "title": "Mudar una oficina sin que el lunes sea un caos: guía para equipos con prisa",
+  "summary": "Cómo organizar una mudanza de oficina sin parar el trabajo: fases, equipos, archivo y qué contar al pedir presupuesto.",
+  "alt": "Oficina diáfana con mesas desmontadas, cajas etiquetadas por puesto de trabajo y pantallas embaladas sobre un carro",
+  "published": false
+ },
+ {
+  "slug": "mudanza-a-las-islas",
+  "when": "2026-10-29T19:00",
+  "tag": "Guías",
+  "mins": 6,
+  "title": "Con el camión no basta: lo que cambia cuando tu mudanza cruza el mar",
+  "summary": "Qué cambia cuando una mudanza cruza el mar, cómo planificar plazos y qué preguntar antes de contratar.",
+  "alt": "Camión de mudanzas esperando en la zona de embarque de un puerto, con un ferry al fondo y cajas apiladas en el muelle",
+  "published": false
+ }
+]
