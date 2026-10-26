@@ -70,5 +70,27 @@
   "alt": "Camión de mudanzas esperando en la zona de embarque de un puerto, con un ferry al fondo y cajas apiladas en el muelle",
   "published": false,
   "home_li": "<li><a href=\"mudanza-a-las-islas.html\">Mudanza a Canarias y Baleares</a>: qué cambia y cómo prepararla.</li>"
+ },
+ {
+  "slug": "mudanza-local",
+  "when": "2026-10-30T19:00",
+  "tag": "Precios",
+  "mins": 6,
+  "title": "Mudanza dentro de tu ciudad: la que parece fácil (hasta que llega el sábado)",
+  "summary": "Cuánto cuesta una mudanza dentro de la misma provincia según nuestra calculadora y qué conviene organizar cuando las dos casas están cerca.",
+  "alt": "Furgoneta de mudanzas aparcada en doble fila frente a un portal de ciudad, con dos personas cargando cajas",
+  "published": false,
+  "home_li": "<li><a href=\"mudanza-local.html\">Mudanza local</a>: dentro de tu provincia.</li>"
+ },
+ {
+  "slug": "mudanza-piso-casa",
+  "when": "2026-10-31T19:00",
+  "tag": "Precios",
+  "mins": 6,
+  "title": "Un piso de tres habitaciones no es tres estudios: cómo planificar una mudanza grande",
+  "summary": "Cuánto cuesta una mudanza de piso grande o casa según nuestra calculadora, qué extras pesan más y cómo planificarla por habitaciones.",
+  "alt": "Salón de una casa con cajas etiquetadas por habitación apiladas junto a un sofá desmontado y un armario en paneles",
+  "published": false,
+  "home_li": "<li><a href=\"mudanza-piso-casa.html\">Mudanza de piso o casa</a>: viviendas de 3 o más habitaciones.</li>"
  }
 ]
