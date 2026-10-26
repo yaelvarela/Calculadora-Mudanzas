@@ -57,7 +57,8 @@
   "title": "Mudar una oficina sin que el lunes sea un caos: guía para equipos con prisa",
   "summary": "Cómo organizar una mudanza de oficina sin parar el trabajo: fases, equipos, archivo y qué contar al pedir presupuesto.",
   "alt": "Oficina diáfana con mesas desmontadas, cajas etiquetadas por puesto de trabajo y pantallas embaladas sobre un carro",
-  "published": false
+  "published": false,
+  "home_li": "<li><a href=\"mudanza-de-oficina.html\">Mudanza de oficina</a>: cómo organizarla sin parar el trabajo.</li>"
  },
  {
   "slug": "mudanza-a-las-islas",
@@ -67,6 +68,7 @@
   "title": "Con el camión no basta: lo que cambia cuando tu mudanza cruza el mar",
   "summary": "Qué cambia cuando una mudanza cruza el mar, cómo planificar plazos y qué preguntar antes de contratar.",
   "alt": "Camión de mudanzas esperando en la zona de embarque de un puerto, con un ferry al fondo y cajas apiladas en el muelle",
-  "published": false
+  "published": false,
+  "home_li": "<li><a href=\"mudanza-a-las-islas.html\">Mudanza a Canarias y Baleares</a>: qué cambia y cómo prepararla.</li>"
  }
 ]

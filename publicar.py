@@ -82,6 +82,23 @@ def insert_top(path, list_id, card, slug):
     return True
 
 
+def add_home_link(it):
+    """Anade el enlace del articulo a 'Mudanzas por tipo' de la portada (si la cola trae home_li)."""
+    li = it.get("home_li")
+    if not li:
+        return
+    for name in ("index.html", "index-completo.html"):
+        path = os.path.join(ROOT, name)
+        s = open(path, encoding="utf-8").read()
+        if ('href="%s.html"' % it["slug"]) in s.split("<h3>Mudanzas por tipo</h3>")[-1][:1500]:
+            continue
+        k = s.index("<h3>Mudanzas por tipo</h3>")
+        j = s.index("<ul>", k) + len("<ul>")
+        j = s.index(chr(10), j) + 1
+        s = s[:j] + "      " + li + chr(10) + s[j:]
+        open(path, "w", encoding="utf-8", newline="").write(s)
+
+
 def main():
     queue = json.load(open(QF, encoding="utf-8"))
     pend = [q for q in queue if not os.path.exists(os.path.join(ROOT, q["slug"] + ".html"))]
@@ -116,6 +133,8 @@ def main():
     insert_top(os.path.join(ROOT, "blog.html"), "post-list", card_blog(it), slug)
     insert_top(os.path.join(ROOT, "index.html"), "blog-preview-list", card_index(it), slug)
     insert_top(os.path.join(ROOT, "index-completo.html"), "blog-preview-list", card_index(it), slug)
+
+    add_home_link(it)
 
     sm = os.path.join(ROOT, "sitemap.xml")
     s = open(sm, encoding="utf-8").read()
