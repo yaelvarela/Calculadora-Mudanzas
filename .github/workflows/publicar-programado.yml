@@ -1,14 +1,14 @@
 name: Publicar artículo programado
 
-# Publica un artículo del blog al día a las 19:00 (hora de Madrid), del 23 al 29 de octubre de 2026.
+# Publica un artículo del blog al día a las 19:00 (hora de Madrid), del 23 al 31 de octubre de 2026.
 # Hay dos disparos porque el 25/10 cambia la hora: 17:05 UTC = 19:05 en horario de verano
 # y 18:05 UTC = 19:05 en horario de invierno. El script solo publica cuando ya ha llegado
 # la hora de la cola, así que el otro disparo no hace nada.
 # La cola (páginas + queue.json + publicar.py) vive en la rama "programados", que la web no sirve.
 on:
   schedule:
-    - cron: '5 17 23-29 10 *'
-    - cron: '5 18 23-29 10 *'
+    - cron: '5 17 23-31 10 *'
+    - cron: '5 18 23-31 10 *'
   workflow_dispatch:
     inputs:
       forzar:
